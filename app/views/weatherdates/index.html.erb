@@ -1,5 +1,8 @@
 <%= link_to "get Data", getdata_path %>
-<%= @response1 %>
+<%= @data %>
 
+<script>
+data = <%= @data.to_json %>
+</script>
 
 <%= link_to "visi", root_path %>

@@ -4,6 +4,10 @@ ready = function() {
 
 var svg = d3.select("svg");
 
+ // $.get("/api/forecast").function(data){
+ //  drawvisualization
+ // }
+ 
  $.ajax({ 
   url:"http://api.openweathermap.org/data/2.5/forecast/city?id=3128760&APPID=da6db9aad545136ce8708eb2d76c2559"
 
