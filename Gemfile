@@ -30,6 +30,8 @@ gem 'd3_rails'
 
 gem 'turbolinks'
 
+gem 'httparty'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

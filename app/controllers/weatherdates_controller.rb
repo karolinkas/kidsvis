@@ -1,18 +1,37 @@
 class WeatherdatesController < ApplicationController
 
-before_filter
+# before_filter :create 
 
-	def new
+	def get_data
+		url = HTTParty.get("http://api.openweathermap.org/data/2.5/forecast/city?id=3128760&APPID=da6db9aad545136ce8708eb2d76c2559")      
+		@response1 = JSON.parse(url.body)
+		render 'get_data'
+  end
 
-	end
+  
 
-	def create
 
-	end
+	# def new
+	# 	@weatherdates = Weatherdates.new
+	# end
 
-	def update
+	# def create
+
+	# 	@weatherdates = Weatherdates.new(weather_params)
+	# 	if @weatherdates.save 
+	# 		redirect root_path
+	# 	else
+	# 		render :new
+	# 	end
+
+	# end
+
+	# def update
 	
-	end
+	# end
 
+	# def weather_params
+
+	# end
 
 end

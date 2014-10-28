@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'visi#index'
   resources :weatherdates 
-
+  get "getdata", to: "weatherdates#get_data" 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

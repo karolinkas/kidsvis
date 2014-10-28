@@ -4,7 +4,10 @@ ready = function() {
 
 var svg = d3.select("svg");
 
- $.ajax({ url:"http://api.openweathermap.org/data/2.5/forecast/city?id=3128760&APPID=da6db9aad545136ce8708eb2d76c2559"
+ $.ajax({ 
+  url:"http://api.openweathermap.org/data/2.5/forecast/city?id=3128760&APPID=da6db9aad545136ce8708eb2d76c2559"
+
+
  }).done(function(data) {
    
    svg.selectAll("circle").data(data.list) 
