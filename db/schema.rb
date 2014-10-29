@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20141028120148) do
 
   create_table "weatherdata", force: true do |t|
+    t.text     "blob"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -16,5 +16,10 @@ body{
 }
 
 body{
-	background-image: url(bedge_grunge.png)
+	background-image: url(bedge_grunge.png);
+}
+
+#label{
+	fill: black;
+	outline: solid black 1px;
 }
