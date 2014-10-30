@@ -12,6 +12,7 @@ ready = function() {
                     .append("g")
                     .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
                     .call(onDragDrop(dragmove, dropHandler));
+                   
 
            
         var g2 = d3.select("body")
@@ -30,7 +31,8 @@ ready = function() {
 
         var windgroup = g1.append("svg")
           .attr("width",800)
-          .attr("id", "windsvg");       
+          .attr("height",300)
+          .attr("id", "windsvg");
           
 
         var temperaturegroup = g2.append("svg")
@@ -79,7 +81,7 @@ ready = function() {
                 })
                 .attr("cy", 40)
                 .attr("cx", function(d, i) {
-                    return 40 * i
+                    return 50 * i
                 })
                 .attr("height", 10)
                 .attr("width", 20)
@@ -91,9 +93,9 @@ ready = function() {
             windgroup.selectAll("text").data(data)
                 .enter()
                 .append("text")
-                .attr("y", 30)
+                .attr("y", 40)
                 .attr("x", function(d, i) {
-                    return 40 * i
+                    return 50 * i
                 })
                 .style('opacity', 0.0)
                 .style('fill', 'orange')
@@ -126,7 +128,7 @@ ready = function() {
                 })
                 .attr("cy", 40)
                 .attr("cx", function(d, i) {
-                    return 40 * i
+                    return 50 * i
                 })
                 .attr("height", 10)
                 .attr("width", 20)
@@ -149,15 +151,15 @@ ready = function() {
                 })
                 .attr("cy", 40)
                 .attr("cx", function(d, i) {
-                    return 40 * i
+                    return 50 * i
                 })
                 .attr("height", 10)
                 .attr("width", 20)
                 .attr("transform", "translate(50, 0)");
 
-
         })
 
+        
 
     } // Pageload
 

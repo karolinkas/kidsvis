@@ -7,6 +7,7 @@ body{
 	padding: 20px;
 	background-color: tan;
 	color: cornsilk;
+	background-image: url(bedge_grunge.png);
 }
 
 #DoIt{
@@ -15,21 +16,15 @@ body{
 	left: 10px;
 }
 
-body{
-	background-image: url(bedge_grunge.png);
-}
 
-#label{
-	fill: black;
-	outline: solid black 1px;
+.labels{
+	font-size: 3em
 }
 
 container{
-	outline: solid black 1px;
+		outline: solid black 1px;
 		display: flex;
 		justify-content: center;
-		
-
 }
 
 .mainsvg{
@@ -42,4 +37,11 @@ container{
 
 }
 
+.grid .tick {
+    stroke: lightgrey;
+    opacity: 0.7;
+}
+.grid path {
+      stroke-width: 0;
+}
 

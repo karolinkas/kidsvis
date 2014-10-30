@@ -1,5 +1,10 @@
 class TopicsController < ApplicationController
 	
+	
+	# wind = HTTParty.get("weatherdates/retrieve_data_fromAPI")
+
+
+
 	def wind
 		wind = lambda {
 			{
@@ -9,7 +14,7 @@ class TopicsController < ApplicationController
 
 		respond_to do |format|
 			format.json do
-				render json: [wind.call, wind.call, wind.call, wind.call]
+				render json: [wind.call, wind.call, wind.call, wind.call,wind.call, wind.call, wind.call, wind.call]
 			end
 		end
 	end
@@ -24,7 +29,7 @@ class TopicsController < ApplicationController
 
 	respond_to do |format|
 		format.json do
-			render json: [temperature.call, temperature.call, temperature.call, temperature.call]
+			render json: [temperature.call, temperature.call, temperature.call, temperature.call,temperature.call, temperature.call, temperature.call, temperature.call]
 			end
 		end
 	end
@@ -38,7 +43,7 @@ class TopicsController < ApplicationController
 
 	respond_to do |format|
 		format.json do
-			render json: [rain.call, rain.call, rain.call, rain.call]
+			render json: [rain.call, rain.call, rain.call, rain.call,rain.call, rain.call, rain.call, rain.call]
 			end
 		end
 	end

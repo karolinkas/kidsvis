@@ -16,9 +16,6 @@ class WeatherdatesController < ApplicationController
 		end
   end
 
-	def update
-	
-	end
 
 	# def weather_params
 
