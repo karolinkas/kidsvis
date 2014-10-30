@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :weatherdates 
   get "retrieve_data_fromAPI", to: "weatherdates#retrieve_data_fromAPI" 
   get "topics/wind", to: "topics#wind"
+  get "topics/temperature", to: "topics#temperature"
+  get "topics/rain", to: "topics#rain"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -7,6 +7,7 @@ body{
 	padding: 20px;
 	background-color: tan;
 	color: cornsilk;
+	display: flex;
 }
 
 #DoIt{
@@ -22,4 +23,14 @@ body{
 #label{
 	fill: black;
 	outline: solid black 1px;
+}
+
+container{
+	// outline: solid black 1px;
+}
+
+.draggable {
+
+  cursor: move;
+
 }

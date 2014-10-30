@@ -1,22 +1,32 @@
 <link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 
-<% if @timenow.hour>17&&@timenow.hour<22 %>
-<h1>Good Evening</h1>
-<% elsif @timenow.hour>22&&@timenow.hour<6 %>
-<h1>Good Night</h1>
-<% elsif @timenow.hour>6&&@timenow.hour<22 %>
-<h1>Good Morning</h1>
-<% end %>
+<container>
 
-<svg id="windsvg" height="100" width="1100">
-  
-</svg>
+	<% if @timenow.hour>17&&@timenow.hour<22 %>
+	<h1>Good Evening</h1>
+	<% elsif @timenow.hour>22&&@timenow.hour<6 %>
+	<h1>Good Night</h1>
+	<% elsif @timenow.hour>6&&@timenow.hour<22 %>
+	<h1>Good Morning</h1>
+	<% end %>
 
-<svg id="sunsvg" height="100" width="1100">
-  <circle cx="20" cy="20" r="20" fill="khaki" />
-</svg>
 
-<p id="mybox"> Result: </p> 
+		<svg class="draggable" id="windsvg" height="150" width="1100"
+		transform="matrix(1 0 0 1 0 0)" onmousedown="selectElement(evt)">  
+		</svg>
 
-<%= link_to "weatherdates", weatherdates_path %>
+		<svg class="draggable" id="temperaturesvg" height="150" width="1100"
+		transform="matrix(1 0 0 1 0 0)" onmousedown="selectElement(evt)">
+		</svg>
+
+		<svg class="draggable" id="rainsvg" height="150" width="1100"
+		transform="matrix(1 0 0 1 0 0)" onmousedown="selectElement(evt)">
+		</svg>
+
+
+	<p id="mybox"> Result: </p> 
+
+	<%= link_to "weatherdates", weatherdates_path %>
+
+</container>
 
