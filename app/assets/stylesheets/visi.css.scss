@@ -7,7 +7,6 @@ body{
 	padding: 20px;
 	background-color: tan;
 	color: cornsilk;
-	display: flex;
 }
 
 #DoIt{
@@ -26,7 +25,15 @@ body{
 }
 
 container{
-	// outline: solid black 1px;
+	outline: solid black 1px;
+		display: flex;
+		justify-content: center;
+		
+
+}
+
+.mainsvg{
+		
 }
 
 .draggable {
@@ -34,3 +41,5 @@ container{
   cursor: move;
 
 }
+
+

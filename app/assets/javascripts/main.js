@@ -1,58 +1,30 @@
 var ready;
-var selectedElement = 0;
-var currentX = 0;
-var currentY = 0;
-var currentMatrix = 0;
 
-
-function selectElement(evt) {
-  selectedElement = evt.target;
-  currentX = evt.clientX;
-  currentY = evt.clientY;
-  currentMatrix = selectedElement.getAttributeNS(null, "transform").slice(7,-1).split(' ');
-
-  for(var i=0; i<currentMatrix.length; i++) {
-  currentMatrix[i] = parseFloat(currentMatrix[i]);
-  }
-
-  selectedElement.setAttributeNS(null, "onmousemove", "moveElement(evt)");
-  selectedElement.setAttributeNS(null, "onmouseout", "deselectElement(evt)");
-  selectedElement.setAttributeNS(null, "onmouseup", "deselectElement(evt)");
-}
-
-console.log(selectElement);
-
-function moveElement(evt) {
-  var dx = evt.clientX - currentX;
-  var dy = evt.clientY - currentY;
-  currentMatrix[4] += dx;
-  currentMatrix[5] += dy;
-
-  selectedElement.setAttributeNS(null, "transform", "matrix(" + currentMatrix.join(' ') + ")");
-  currentX = evt.clientX;
-  currentY = evt.clientY;
-}
-
-function deselectElement(evt) {
-  if(selectedElement != 0){
-    selectedElement.removeAttributeNS(null, "onmousemove");
-    selectedElement.removeAttributeNS(null, "onmouseout");
-    selectedElement.removeAttributeNS(null, "onmouseup");
-    selectedElement = 0;
-  }
-}
 
 ready = function() {
-  $("#table-filters>ul>li.active").removeClass("active");
-  var umbrella = $("#umbrella");
-  console.log(umbrella);
+      
+    function onDragDrop(dragHandler, dropHandler) {
+        var drag = d3.behavior.drag();
 
-      var data;
-      var datat;
+    drag.on("drag", dragHandler)
+    .on("dragend", dropHandler);
+    return drag;
+    }
+
+
+    function dragmove(d) {
+              d.x += d3.event.dx;
+              d.y += d3.event.dy;
+              d3.select(this).attr("transform", "translate(" + d.x + "," + d.y + ")");
+    }
+
+
       d3.json( "/topics/wind.json", function(error, json) { 
         var windsvg = d3.select("#windsvg");
         data = json;
         console.log(data);
+
+                           
         windsvg.selectAll("circle").data(data) 
                              .enter() 
                              .append("circle")         
@@ -62,15 +34,9 @@ ready = function() {
                              .attr("height",10)
                              .attr("width",20 )
                              .attr("transform", "translate(50, 0)");
+                           
 
-        // console.log("g");
-        // console.log(g);
-        // $.each(umbrella.find("path"), function(i, e) {
-        //   console.log(e);
-        //   g.append("path").attr("d", $(e).attr("d"));
-        // })
-
-        // g.attr("transform", function(d,i){return "translate(" + (i * 40) + ", 30)" + " scale"+"("+d.speed+","+d.speed+")"})
+        
 
       windsvg.selectAll("text").data(data)
                            .enter()
@@ -87,6 +53,7 @@ ready = function() {
                            })
                            .text(function(d,i){return d.speed})
                            .attr("class","labels");
+                        
       });
 
     d3.json("/topics/temperature.json", function(error,json){
@@ -103,6 +70,7 @@ ready = function() {
                              .attr("height",10)
                              .attr("width",20 )
                              .attr("transform", "translate(50, 0)");
+                            
 
 
     })
@@ -121,6 +89,7 @@ ready = function() {
                              .attr("height",10)
                              .attr("width",20 )
                              .attr("transform", "translate(50, 0)");
+                       
 
   })
 
