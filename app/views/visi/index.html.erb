@@ -10,18 +10,27 @@
 	<h1>Good Morning</h1>
 	<% end %>
 
+	<svg xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns="http://www.w3.org/2000/svg"
+     version="1.1"
+     width="1000"
+     height="600"
+     fill="oldlace">
+		
 
-		<svg class="draggable" id="windsvg" height="150" width="1100"
+		<svg class="draggable" id="windsvg" x="30" y="20" height="150" width="1100"
 		transform="matrix(1 0 0 1 0 0)" onmousedown="selectElement(evt)">  
 		</svg>
 
-		<svg class="draggable" id="temperaturesvg" height="150" width="1100"
+		<svg class="draggable" id="temperaturesvg" x="30" y="170" height="150" width="1100"
 		transform="matrix(1 0 0 1 0 0)" onmousedown="selectElement(evt)">
 		</svg>
 
-		<svg class="draggable" id="rainsvg" height="150" width="1100"
+		<svg class="draggable" id="rainsvg" x="30" y="320" height="150" width="1100"
 		transform="matrix(1 0 0 1 0 0)" onmousedown="selectElement(evt)">
 		</svg>
+
+	</svg>
 
 
 	<p id="mybox"> Result: </p> 
