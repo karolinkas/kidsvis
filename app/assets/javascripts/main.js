@@ -2,31 +2,38 @@ var ready;
 
 ready = function() {
 
-var svg = d3.select("svg");
+var umbrella = $("#umbrella");
+console.log(umbrella);
 
+    var data;
+    d3.json( "/topics/wind.json", function(error, json) { 
+      var svg = d3.select("#windsvg");
+      data = json;
+      console.log(data);
+      svg.selectAll("circle").data(data) 
+                           .enter() 
+                           .append("circle")         
+                           .attr("r",function(d,i){ return 2*d.speed })
+                           .attr("cy",30)
+                           .attr("cx", function(d,i){ return 40*i })
+                           .attr("height",10)
+                           .attr("width",20 )
+                           .attr("transform", "translate(50, 0)")
 
-$.get( "/retrieve_data_fromAPI", function(data) {
-  
-    // console.log(data.blob);
-}).done(function(data) {
-    
-      svg.selectAll("circle").data(data.blob.list) 
-                          .enter() 
-                          .append("circle")
-                          .attr("r",0)
-                          .transition()
-                          .delay( 200 * i )     
-                          .attr("r",function(d,i){ return d.wind["speed"]*3 })
-                          .attr("cy",30)
-                          .attr("cx", function(d,i){ return 40*i })
-                          .attr("height",10)
-                          .attr("width",20 )
+      // console.log("g");
+      // console.log(g);
+      // $.each(umbrella.find("path"), function(i, e) {
+      //   console.log(e);
+      //   g.append("path").attr("d", $(e).attr("d"));
+      // }),
 
-    svg.selectAll("text").data(data.blob.list)
+      // g.attr("transform", function(d,i){return "translate(" + (i * 40) + ", 30)" + " scale"+"("+d.speed+","+d.speed+")"})
+
+    svg.selectAll("text").data(data)
                          .enter()
                          .append("text")
                          .attr("y",30)
-                         .attr("x", function(d,i){ return 20+40*i })
+                         .attr("x", function(d,i){ return 40*i })
                          .style('opacity',0.0)
                          .style('fill','orange')
                          .on('mouseover', function(d){ 
@@ -35,21 +42,13 @@ $.get( "/retrieve_data_fromAPI", function(data) {
                          .on('mouseout', function(d){ 
                            d3.select(this).style({opacity:'0.0'})
                          })
-                         .text(function(d,i){return d.dt_txt})
+                         .text(function(d,i){return d.speed})
                          .attr("class","labels");
-
-
-  })
-  .fail(function() {
-   console.log("fail");
-  })
-  .always(function() {
-   
-}); 
-
-}
+    });
+  }
 
 
 $(document).ready(ready);
-$(document).on('page:load', ready);
+// $(document).on('page:load', ready);
+
 

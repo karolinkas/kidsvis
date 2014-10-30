@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'visi#index'
   resources :weatherdates 
   get "retrieve_data_fromAPI", to: "weatherdates#retrieve_data_fromAPI" 
+  get "topics/wind", to: "topics#wind"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
