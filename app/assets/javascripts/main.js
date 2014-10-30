@@ -4,53 +4,63 @@ var ready;
 ready = function() {
 
 
-          
+        var d = [{ x: 20, y: 20 }];
+
         var g1 = d3.select("body")
                     .select(".mainsvg")
+                    .data(d)
                     .append("g")
-                    // .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
-                    // .call(onDragDrop(dragmove, dropHandler));
+                    .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
+                    .call(onDragDrop(dragmove, dropHandler));
 
            
         var g2 = d3.select("body")
                    .select(".mainsvg")
+                   .data(d)
                    .append("g")
-                   // .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
-                   // // .call(onDragDrop(dragmove, dropHandler)); 
+                   .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
+                   .call(onDragDrop(dragmove, dropHandler)); 
         
         var g3 = d3.select("body")
                     .select(".mainsvg")
+                    .data(d)
                     .append("g")
-                    // .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
-                    // // .call(onDragDrop(dragmove, dropHandler));
+                    .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
+                    .call(onDragDrop(dragmove, dropHandler));
 
         var windgroup = g1.append("svg")
-          .attr("id", "windsvg");
+          .attr("width",800)
+          .attr("id", "windsvg");       
+          
 
         var temperaturegroup = g2.append("svg")
+          .attr("width",800)
           .attr("id", "temperaturesvg");
+       
 
         var raingroup = g3.append("svg")
-          .attr("id", "rainsvg");               
+          .attr("width",800)
+          .attr("id", "rainsvg");
+                        
 
 
-        // function onDragDrop(dragHandler, dropHandler) {
-        //     var drag = d3.behavior.drag();
+        function onDragDrop(dragHandler, dropHandler) {
+            var drag = d3.behavior.drag();
 
-        //     drag.on("drag", dragHandler)
-        //         .on("dragend", dropHandler);
-        //     return drag;
-        // }
+            drag.on("drag", dragHandler)
+                .on("dragend", dropHandler);
+            return drag;
+        }
 
-        // function dropHandler(d) {
-        //     console.log('dropped');
-        // }
+        function dropHandler(d) {
+            console.log('dropped');
+        }
 
-        // function dragmove(d) {
-        //     d.x += d3.event.dx;
-        //     d.y += d3.event.dy;
-        //     d3.select(this).attr("transform", "translate(" + d.x + "," + d.y + ")");
-        // }
+        function dragmove(d) {
+
+            d.y += d3.event.dy;
+            d3.select(this).attr("transform", "translate(" + d.x + "," + d.y + ")");
+        }
 
 
 
