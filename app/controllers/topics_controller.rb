@@ -17,60 +17,53 @@ class TopicsController < ApplicationController
 		@date = Weatherdata.find(1).blob
 	end
 
-	def show
-		@date = JSON.parse(Weatherdata.find(params[:id]))
-	end
-
 
 
 	def wind
+		wind = []
+			JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
+				wind << {speed: it["wind"]["speed"]}
+		end
 
-		
-		wind = lambda {
-			{
-			  speed: rand(10),
-			}
-		}
 
 		respond_to do |format|
 			format.json do
-				render json: [wind.call, wind.call, wind.call, wind.call,wind.call, wind.call, wind.call, wind.call]
+				render json: wind
 			end
 		end
 	end
 
 
 	def temperature
-	temperature = lambda {
-		{
-		  degrees: rand(20),
-		}
-	}
+
+
+		temperature = []
+			JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
+				temperature << {temperature: it["main"]["temp"]}
+		end
+
+		respond_to do |format|
+			format.json do
+				render json: temperature
+				end
+			end
+	end
+
+	def humidity
+
+		humidity = []
+				JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
+					humidity << {hum: it["main"]["humidity"]}
+			end
 
 	respond_to do |format|
 		format.json do
-			render json: [temperature.call, temperature.call, temperature.call, temperature.call,temperature.call, temperature.call, temperature.call, temperature.call]
+			render json: humidity
 			end
 		end
+	
 	end
 
-	def rain
-	rain = lambda {
-		{
-		  prec: rand(20),
-		}
-	}
 
-	respond_to do |format|
-		format.json do
-			render json: [rain.call, rain.call, rain.call, rain.call,rain.call, rain.call, rain.call, rain.call]
-			end
-		end
-	end
-
-	 private
-   def pet_params
-    params.require(:data).permit(:id)
-  end
 
 end

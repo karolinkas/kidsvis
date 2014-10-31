@@ -30,19 +30,15 @@ ready = function() {
                     .call(onDragDrop(dragmove, dropHandler));
 
         var windgroup = g1.append("svg")
-          .attr("width",800)
-          .attr("height",300)
           .attr("id", "windsvg");
           
 
         var temperaturegroup = g2.append("svg")
-          .attr("width",800)
           .attr("id", "temperaturesvg");
        
 
-        var raingroup = g3.append("svg")
-          .attr("width",800)
-          .attr("id", "rainsvg");
+        var humiditygroup = g3.append("svg")
+          .attr("id", "humiditysvg");
                         
 
 
@@ -77,7 +73,7 @@ ready = function() {
                 .enter()
                 .append("circle")
                 .attr("r", function(d, i) {
-                    return 2 * d.speed
+                    return 5 * d.speed
                 })
                 .attr("cy", 40)
                 .attr("cx", function(d, i) {
@@ -86,9 +82,8 @@ ready = function() {
                 .attr("height", 10)
                 .attr("width", 20)
                 .attr("transform", "translate(50, 0)");
-
-
-
+              
+            
 
             windgroup.selectAll("text").data(data)
                 .enter()
@@ -124,9 +119,9 @@ ready = function() {
                 .enter()
                 .append("circle")
                 .attr("r", function(d, i) {
-                    return 2 * d.degrees
+                    return 2 * d.temperature/50
                 })
-                .attr("cy", 40)
+                .attr("cy", 120)
                 .attr("cx", function(d, i) {
                     return 50 * i
                 })
@@ -134,22 +129,21 @@ ready = function() {
                 .attr("width", 20)
                 .attr("transform", "translate(50, 0)");
 
-
+             
 
         })
 
-        d3.json("/topics/rain.json", function(error, json) {
-
-          
-            datat = json;
-            console.log(datat);
-            raingroup.selectAll("circle").data(datat)
+        d3.json("/topics/humidity.json", function(error, json) {
+    
+            datas = json;
+            console.log(datas);
+            humiditygroup.selectAll("circle").data(datas)
                 .enter()
                 .append("circle")
                 .attr("r", function(d, i) {
-                    return 2 * d.prec
+                    return d.hum/5
                 })
-                .attr("cy", 40)
+                .attr("cy", 200)
                 .attr("cx", function(d, i) {
                     return 50 * i
                 })
