@@ -163,4 +163,13 @@ ready = function() {
 
     } // Pageload
 
+
+    // style.display property to "none"
+    // and
+    // show() and hide function
+
+//     $("button").click(function(){
+//   $("element").toggle();
+// });
+
 $(document).ready(ready);

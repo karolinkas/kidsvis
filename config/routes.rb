@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "topics/wind", to: "topics#wind"
   get "topics/temperature", to: "topics#temperature"
   get "topics/rain", to: "topics#rain"
+  get "topics", to: "topics#index"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

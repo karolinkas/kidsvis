@@ -1,11 +1,31 @@
 class TopicsController < ApplicationController
 	
-	
-	# wind = HTTParty.get("weatherdates/retrieve_data_fromAPI")
+	# attr_reader :wind, :temperature, :rain
+
+ #  def initialize(wind, temperature, rain)
+ #    @wind = wind
+ #    @temperature = temperature
+ #  end
+
+ #  def from_json 
+ #    {:wind => @wind, :temperature => @temperature, :rain => @rain }.from_json
+ #  end
+
+	def index
+
+		@data = Weatherdata.all
+		@date = Weatherdata.find(1).blob
+	end
+
+	def show
+		@date = JSON.parse(Weatherdata.find(params[:id]))
+	end
 
 
 
 	def wind
+
+		
 		wind = lambda {
 			{
 			  speed: rand(10),
@@ -47,5 +67,10 @@ class TopicsController < ApplicationController
 			end
 		end
 	end
+
+	 private
+   def pet_params
+    params.require(:data).permit(:id)
+  end
 
 end

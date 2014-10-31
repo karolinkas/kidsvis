@@ -4,4 +4,5 @@ class Weatherdata < ActiveRecord::Base
 		JSON.parse(self.blob)
 	end	
 	
+	
 end
