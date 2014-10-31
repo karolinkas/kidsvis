@@ -7,7 +7,7 @@ ready = function() {
         var d = [{ x: 20, y: 20 }];
 
         var g1 = d3.select("body")
-                    .select(".mainsvg")
+                    .select(".grid")
                     .data(d)
                     .append("g")
                     .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
@@ -16,14 +16,14 @@ ready = function() {
 
            
         var g2 = d3.select("body")
-                   .select(".mainsvg")
+                   .select(".grid")
                    .data(d)
                    .append("g")
                    .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
                    .call(onDragDrop(dragmove, dropHandler)); 
         
         var g3 = d3.select("body")
-                    .select(".mainsvg")
+                    .select(".grid")
                     .data(d)
                     .append("g")
                     .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
@@ -79,6 +79,7 @@ ready = function() {
                 .attr("cx", function(d, i) {
                     return 50 * i
                 })
+                .style('fill', 'gold')
                 .attr("height", 10)
                 .attr("width", 20)
                 .attr("transform", "translate(50, 0)");
@@ -88,6 +89,8 @@ ready = function() {
             windgroup.selectAll("text").data(data)
                 .enter()
                 .append("text")
+                .attr("width",50)
+                .attr("height",20)
                 .attr("y", 40)
                 .attr("x", function(d, i) {
                     return 50 * i
@@ -125,6 +128,7 @@ ready = function() {
                 .attr("cx", function(d, i) {
                     return 50 * i
                 })
+                .style("fill","dodgerblue")
                 .attr("height", 10)
                 .attr("width", 20)
                 .attr("transform", "translate(50, 0)");
@@ -147,6 +151,7 @@ ready = function() {
                 .attr("cx", function(d, i) {
                     return 50 * i
                 })
+                .style("fill","deeppink")
                 .attr("height", 10)
                 .attr("width", 20)
                 .attr("transform", "translate(50, 0)");
