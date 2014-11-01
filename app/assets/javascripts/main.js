@@ -4,7 +4,8 @@ var ready;
 ready = function() {
 
 
-        var d = [{ x: 20, y: 20 }];
+
+        var d = [{ x: 0, y: 0 }];
 
         var g1 = d3.select("body")
                     .select(".grid")
@@ -31,7 +32,8 @@ ready = function() {
 
         var windgroup = g1.append("svg")
           .attr("id", "windsvg");
-          
+        
+
 
         var temperaturegroup = g2.append("svg")
           .attr("id", "temperaturesvg");
@@ -39,6 +41,8 @@ ready = function() {
 
         var humiditygroup = g3.append("svg")
           .attr("id", "humiditysvg");
+
+        var rect = windgroup.selectAll("div")
                         
 
 
@@ -66,15 +70,13 @@ ready = function() {
         d3.json("/topics/wind.json", function(error, json) {
            
             data = json;
-            console.log(data);
+            // console.log(data);
 
-
+            
             windgroup.selectAll("circle").data(data)
                 .enter()
                 .append("circle")
-                .attr("r", function(d, i) {
-                    return 5 * d.speed
-                })
+                .attr("r", 0)
                 .attr("cy", 40)
                 .attr("cx", function(d, i) {
                     return 50 * i
@@ -82,21 +84,22 @@ ready = function() {
                 .style('fill', 'gold')
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(50, 0)");
-              
-            
+                .attr("transform", "translate(50, 0)")
+                .transition()
+                .duration(1000) 
+                .delay(100)
+                .attr("r",function(d, i) {
+                    return 5 * d.speed
+                }) 
+
 
             windgroup.selectAll("text").data(data)
                 .enter()
                 .append("text")
                 .attr("width",50)
                 .attr("height",20)
+                .style("opacity",0)
                 .attr("y", 40)
-                .attr("x", function(d, i) {
-                    return 50 * i
-                })
-                .style('opacity', 0.0)
-                .style('fill', 'orange')
                 .on('mouseover', function(d) {
                     d3.select(this).style({
                         opacity: '1.0'
@@ -107,9 +110,13 @@ ready = function() {
                         opacity: '0.0'
                     })
                 })
+                .attr("x", function(d, i) {
+                    return 50 * i
+                })
                 .text(function(d, i) {
                     return d.speed
                 })
+                .on()
                 .attr("class", "labels");
 
         });
@@ -117,7 +124,7 @@ ready = function() {
         d3.json("/topics/temperature.json", function(error, json) {
 
             datat = json;
-            console.log(datat);
+            // console.log(datat);
             temperaturegroup.selectAll("circle").data(datat)
                 .enter()
                 .append("circle")
@@ -133,14 +140,38 @@ ready = function() {
                 .attr("width", 20)
                 .attr("transform", "translate(50, 0)");
 
-             
+              temperaturegroup.selectAll("text").data(data)
+                .enter()
+                .append("text")
+                .attr("width",50)
+                .attr("height",20)
+                .style("opacity",0)
+                .attr("y", 120)
+                .on('mouseover', function(d) {
+                    d3.select(this).style({
+                        opacity: '1.0'
+                    })
+                })
+                .on('mouseout', function(d) {
+                    d3.select(this).style({
+                        opacity: '0.0'
+                    })
+                })
+                .attr("x", function(d, i) {
+                    return 50 * i
+                })
+                .text(function(d, i) {
+                    return d.temperature
+                })
+                .on()
+                .attr("class", "labels");
 
         })
 
         d3.json("/topics/humidity.json", function(error, json) {
     
             datas = json;
-            console.log(datas);
+            // console.log(datas);
             humiditygroup.selectAll("circle").data(datas)
                 .enter()
                 .append("circle")
@@ -156,11 +187,40 @@ ready = function() {
                 .attr("width", 20)
                 .attr("transform", "translate(50, 0)");
 
+            humiditygroup.selectAll("text").data(data)
+                .enter()
+                .append("text")
+                .attr("width",50)
+                .attr("height",20)
+                .style("opacity",0)
+                .attr("y", 40)
+                .on('mouseover', function(d) {
+                    d3.select(this).style({
+                        opacity: '1.0'
+                    })
+                })
+                .on('mouseout', function(d) {
+                    d3.select(this).style({
+                        opacity: '0.0'
+                    })
+                })
+                .attr("x", function(d, i) {
+                    return 50 * i
+                })
+                .text(function(d, i) {
+                    return d.speed
+                })
+                .on()
+                .attr("class", "labels");
+
         })
 
         
 
     } // Pageload
+
+
+
 
 
     // style.display property to "none"
@@ -172,3 +232,5 @@ ready = function() {
 // });
 
 $(document).ready(ready);
+
+
