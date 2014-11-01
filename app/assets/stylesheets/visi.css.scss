@@ -17,8 +17,7 @@
 body{
 	font-family: 'Lora', serif;
 	padding: 20px;
-	background-color: tan;
-	color: cornsilk;
+	color: white;
 	background-image: url(bedge_grunge.png);
 	line-height:20px;
 }
@@ -75,17 +74,21 @@ container{
   // outline:1px red solid;
 }
 
-circle{
-	background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(41,137,216,0.41) 59%, rgba(125,185,232,0) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(59%,rgba(41,137,216,0.41)), color-stop(100%,rgba(125,185,232,0))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,0.41) 59%,rgba(125,185,232,0) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,0.41) 59%,rgba(125,185,232,0) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,0.41) 59%,rgba(125,185,232,0) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,0.41) 59%,rgba(125,185,232,0) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
-}
 
 h1{
 	line-height:12px;
 }
 
+.icons{
+		position: absolute;
+		top: 120px;
+		left:120px;
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: flex-start;
+}
+
+.icon{
+
+}

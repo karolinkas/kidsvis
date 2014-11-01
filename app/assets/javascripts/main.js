@@ -3,10 +3,10 @@ var ready;
 
 ready = function(){
 
-        var width=1000;
-        var height=400;
+        var margin = {top: 50, right: 50, bottom: 50, left: 50};
 
-        var axislabels =["today","tomorrow","the day after tomorrow"];
+        var width = 960 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
 
         var svg = d3.select("body")
                     .select(".grid")
@@ -14,13 +14,13 @@ ready = function(){
                     .attr("height",height);
 
              
-        var xscale = d3.time.scale()
+        var xscale = d3.scale.linear()
             .domain([1,31])
             .range([0, width]);
 
         var xAxis = d3.svg.axis()
             .scale(xscale)
-            .ticks(10)
+            .ticks(20)
             .tickSize(6, 0)
             .orient("top");
        
@@ -95,7 +95,6 @@ ready = function(){
         d3.json("/topics/wind.json", function(error, json) {
             
             data = json;
-            // console.log(data);
 
             
             windgroup.selectAll("circle").data(data)
@@ -104,18 +103,18 @@ ready = function(){
                 .attr("r", 0)
                 .attr("cy", 40)
                 .attr("cx", function(d, i) {
-                    return 50 * i
+                    return 50 * (i-21)
                 })
                 .style('fill', 'gold')
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(50, 0)")
+                .attr("transform", "translate(500, 0)")
                 .transition()
                 .duration(1000) 
                 .delay(100)
                 .attr("r",function(d, i) {
-                    return 5 * d.speed
-                }) 
+                    return xscale(d.speed/5)+40
+                }); 
 
 
             windgroup.selectAll("text").data(data)
@@ -136,10 +135,10 @@ ready = function(){
                     })
                 })
                 .attr("x", function(d, i) {
-                    return 50 * i
+                    return 50 * (i-21)
                 })
                 .text(function(d, i) {
-                    return d.speed
+                    return d3.round(d.speed) + " mps"
                 })
                 .attr("class", "labels");
 
@@ -148,24 +147,24 @@ ready = function(){
         d3.json("/topics/temperature.json", function(error, json) {
 
             datat = json;
-            console.log(datat);
+            // console.log(datat);
             temperaturegroup.selectAll("circle").data(datat)
                 .enter()
                 .append("circle")
                 .attr("cy", 120)
                 .attr("r",0)
                 .attr("cx", function(d, i) {
-                    return 50 * i
+                    return 50 * (i-21)
                 })
                 .style("fill","dodgerblue")
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(50, 0)")
+                .attr("transform", "translate(500, 0)")
                 .transition()
                 .duration(1000) 
                 .delay(100)
                 .attr("r", function(d, i) {
-                    return 2 * d.temperature/50 });
+                    return xscale(d.temperature/200) });
                
 
               temperaturegroup.selectAll("text").data(datat)
@@ -186,10 +185,10 @@ ready = function(){
                     })
                 })
                 .attr("x", function(d, i) {
-                    return 50 * i
+                    return 50 * (i-21)
                 })
                 .text(function(d, i) {
-                    return d.temperature
+                    return d3.round((d.temperature - 273.15)) + "°C";
                 })
                 .on()
                 .attr("class", "labels");
@@ -206,17 +205,17 @@ ready = function(){
                 .attr("r",0)
                 .attr("cy", 200)
                 .attr("cx", function(d, i) {
-                    return 50 * i
+                    return 50 * (i-21)
                 })
                 .style("fill","deeppink")
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(50, 0)")
+                .attr("transform", "translate(500, 0)")
                 .transition()
                 .duration(1000) 
                 .delay(100)
                 .attr("r", function(d, i) {
-                    return d.hum/5 });
+                    return xscale(d.hum/80) });
 
             humiditygroup.selectAll("text").data(datas)
                 .enter()
@@ -236,10 +235,10 @@ ready = function(){
                     })
                 })
                 .attr("x", function(d, i) {
-                    return 50 * i
+                    return 50 * (i-21)
                 })
                 .text(function(d, i) {
-                    return d.hum
+                    return d.hum + "%"
                 })
                 .attr("class", "labels");
 

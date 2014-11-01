@@ -21,9 +21,14 @@ class TopicsController < ApplicationController
 
 	def wind
 		wind = []
+
+		# Weatherdata.all.each do |object|
+
 			JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
 				wind << {speed: it["wind"]["speed"]}
-		end
+			end
+
+		# end
 
 
 		respond_to do |format|
