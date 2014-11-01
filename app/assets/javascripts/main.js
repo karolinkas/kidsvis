@@ -1,9 +1,33 @@
 var ready;
 
 
-ready = function() {
+ready = function(){
 
+        var width=1000;
+        var height=400;
 
+        var axislabels =["today","tomorrow","the day after tomorrow"];
+
+        var svg = d3.select("body")
+                    .select(".grid")
+                    .attr("width",width)
+                    .attr("height",height);
+
+             
+        var xscale = d3.time.scale()
+            .domain([1,31])
+            .range([0, width]);
+
+        var xAxis = d3.svg.axis()
+            .scale(xscale)
+            .ticks(10)
+            .tickSize(6, 0)
+            .orient("top");
+       
+        var gx = svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
 
         var d = [{ x: 0, y: 0 }];
 
@@ -14,7 +38,6 @@ ready = function() {
                     .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
                     .call(onDragDrop(dragmove, dropHandler));
                    
-
            
         var g2 = d3.select("body")
                    .select(".grid")
@@ -22,6 +45,7 @@ ready = function() {
                    .append("g")
                    .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
                    .call(onDragDrop(dragmove, dropHandler)); 
+
         
         var g3 = d3.select("body")
                     .select(".grid")
@@ -29,6 +53,7 @@ ready = function() {
                     .append("g")
                     .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
                     .call(onDragDrop(dragmove, dropHandler));
+
 
         var windgroup = g1.append("svg")
           .attr("id", "windsvg");
@@ -68,7 +93,7 @@ ready = function() {
 
 
         d3.json("/topics/wind.json", function(error, json) {
-           
+            
             data = json;
             // console.log(data);
 
@@ -116,7 +141,6 @@ ready = function() {
                 .text(function(d, i) {
                     return d.speed
                 })
-                .on()
                 .attr("class", "labels");
 
         });
@@ -124,23 +148,27 @@ ready = function() {
         d3.json("/topics/temperature.json", function(error, json) {
 
             datat = json;
-            // console.log(datat);
+            console.log(datat);
             temperaturegroup.selectAll("circle").data(datat)
                 .enter()
                 .append("circle")
-                .attr("r", function(d, i) {
-                    return 2 * d.temperature/50
-                })
                 .attr("cy", 120)
+                .attr("r",0)
                 .attr("cx", function(d, i) {
                     return 50 * i
                 })
                 .style("fill","dodgerblue")
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(50, 0)");
+                .attr("transform", "translate(50, 0)")
+                .transition()
+                .duration(1000) 
+                .delay(100)
+                .attr("r", function(d, i) {
+                    return 2 * d.temperature/50 });
+               
 
-              temperaturegroup.selectAll("text").data(data)
+              temperaturegroup.selectAll("text").data(datat)
                 .enter()
                 .append("text")
                 .attr("width",50)
@@ -166,7 +194,7 @@ ready = function() {
                 .on()
                 .attr("class", "labels");
 
-        })
+        });
 
         d3.json("/topics/humidity.json", function(error, json) {
     
@@ -175,9 +203,7 @@ ready = function() {
             humiditygroup.selectAll("circle").data(datas)
                 .enter()
                 .append("circle")
-                .attr("r", function(d, i) {
-                    return d.hum/5
-                })
+                .attr("r",0)
                 .attr("cy", 200)
                 .attr("cx", function(d, i) {
                     return 50 * i
@@ -185,15 +211,20 @@ ready = function() {
                 .style("fill","deeppink")
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(50, 0)");
+                .attr("transform", "translate(50, 0)")
+                .transition()
+                .duration(1000) 
+                .delay(100)
+                .attr("r", function(d, i) {
+                    return d.hum/5 });
 
-            humiditygroup.selectAll("text").data(data)
+            humiditygroup.selectAll("text").data(datas)
                 .enter()
                 .append("text")
                 .attr("width",50)
                 .attr("height",20)
                 .style("opacity",0)
-                .attr("y", 40)
+                .attr("y", 200)
                 .on('mouseover', function(d) {
                     d3.select(this).style({
                         opacity: '1.0'
@@ -208,16 +239,15 @@ ready = function() {
                     return 50 * i
                 })
                 .text(function(d, i) {
-                    return d.speed
+                    return d.hum
                 })
-                .on()
                 .attr("class", "labels");
 
-        })
+        });
 
         
 
-    } // Pageload
+} // Pageload
 
 
 
