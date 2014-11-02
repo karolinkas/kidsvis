@@ -20,14 +20,22 @@ ready = function(){
 
         var xAxis = d3.svg.axis()
             .scale(xscale)
-            .ticks(20)
+            .ticks(22)
             .tickSize(6, 0)
             .orient("top");
        
         var gx = svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+            .call(xAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y",width)
+            .attr("dy", ".0em")
+            .style("text-anchor", "start")
+            .attr("fill","grey")
+            .text("hours");
+
 
         var d = [{ x: 0, y: 0 }];
 
@@ -95,7 +103,7 @@ ready = function(){
         d3.json("/topics/wind.json", function(error, json) {
             
             data = json;
-
+            console.log(data);
             
             windgroup.selectAll("circle").data(data)
                 .enter()
@@ -105,15 +113,15 @@ ready = function(){
                 .attr("cx", function(d, i) {
                     return 50 * (i-21)
                 })
-                .style('fill', 'gold')
+                .style('fill', 'deeppink')
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(500, 0)")
+                .attr("transform", "translate(500, 25)")
                 .transition()
                 .duration(1000) 
                 .delay(100)
                 .attr("r",function(d, i) {
-                    return xscale(d.speed/5)+40
+                    return xscale(d.speed/7)+40
                 }); 
 
 
@@ -123,7 +131,7 @@ ready = function(){
                 .attr("width",50)
                 .attr("height",20)
                 .style("opacity",0)
-                .attr("y", 40)
+                .attr("y", 60)
                 .on('mouseover', function(d) {
                     d3.select(this).style({
                         opacity: '1.0'
@@ -147,7 +155,7 @@ ready = function(){
         d3.json("/topics/temperature.json", function(error, json) {
 
             datat = json;
-            // console.log(datat);
+           
             temperaturegroup.selectAll("circle").data(datat)
                 .enter()
                 .append("circle")
@@ -156,10 +164,10 @@ ready = function(){
                 .attr("cx", function(d, i) {
                     return 50 * (i-21)
                 })
-                .style("fill","dodgerblue")
+                .style("fill","gold")
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(500, 0)")
+                .attr("transform", "translate(500, 65)")
                 .transition()
                 .duration(1000) 
                 .delay(100)
@@ -173,7 +181,7 @@ ready = function(){
                 .attr("width",50)
                 .attr("height",20)
                 .style("opacity",0)
-                .attr("y", 120)
+                .attr("y", 190)
                 .on('mouseover', function(d) {
                     d3.select(this).style({
                         opacity: '1.0'
@@ -198,7 +206,7 @@ ready = function(){
         d3.json("/topics/humidity.json", function(error, json) {
     
             datas = json;
-            // console.log(datas);
+           
             humiditygroup.selectAll("circle").data(datas)
                 .enter()
                 .append("circle")
@@ -207,10 +215,10 @@ ready = function(){
                 .attr("cx", function(d, i) {
                     return 50 * (i-21)
                 })
-                .style("fill","deeppink")
+                .style("fill","dodgerblue")
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(500, 0)")
+                .attr("transform", "translate(500, 100)")
                 .transition()
                 .duration(1000) 
                 .delay(100)
@@ -223,7 +231,7 @@ ready = function(){
                 .attr("width",50)
                 .attr("height",20)
                 .style("opacity",0)
-                .attr("y", 200)
+                .attr("y", 300)
                 .on('mouseover', function(d) {
                     d3.select(this).style({
                         opacity: '1.0'
