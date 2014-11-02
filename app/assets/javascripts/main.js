@@ -1,45 +1,90 @@
+slide = 0
+
+function travelTime(ahead) {
+    if(ahead) {
+        slide += 1
+    }else{
+        slide -= 1
+    }
+
+    d3.json("/topics/wind.json", function(error, json) {
+        beginning = slide*18+1
+        end = beginning + 17            
+        dataw = json.slice(beginning, end);
+
+        windgroup.selectAll("circle").remove();
+        windgroup.selectAll("circle").data(dataw)
+                                     .attr("class", "update")
+                                     .enter()
+                                     .append("circle")
+                                     .attr("r", 0)
+                                     .attr("cy", 40)
+                                     .attr("cx", function(d, i) {
+                                        return 50 * i
+                                     })
+                                     .style('fill', 'deeppink')
+                                     .attr("height", 10)
+                                     .attr("width", 20)
+                                     .attr("transform", "translate(26, 25)")
+                                     .transition()
+                                     .duration(1000) 
+                                     .delay(100)
+                                     .attr("r",function(d, i) {
+                                        return xscale(d.speed/7)+40
+                                     });
+    })
+}
+
+function travelAhead() {
+    travelTime(true);
+}
+
+function travelBack() {
+    travelTime(false);
+}
+
 var ready;
 
 
 ready = function(){
 
-        var margin = {top: 50, right: 50, bottom: 50, left: 50};
+        margin = {top: 50, right: 50, bottom: 50, left: 50};
 
-        var width = 960 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
-        var svg = d3.select("body")
+        svg = d3.select("body")
                     .select(".grid")
                     .attr("width",width)
                     .attr("height",height);
 
              
-        var xscale = d3.scale.linear()
+        xscale = d3.scale.linear()
             .domain([1,31])
             .range([0, width]);
 
-        var xAxis = d3.svg.axis()
+        xAxis = d3.svg.axis()
             .scale(xscale)
             .ticks(22)
             .tickSize(6, 0)
             .orient("top");
        
-        var gx = svg.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis)
-            .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y",width)
-            .attr("dy", ".0em")
-            .style("text-anchor", "start")
-            .attr("fill","grey")
-            .text("hours");
+        gx = svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y",width)
+                .attr("dy", ".0em")
+                .style("text-anchor", "start")
+                .attr("fill","grey")
+                .text("hours");
 
 
-        var d = [{ x: 0, y: 0 }];
+        d = [{ x: 0, y: 0 }];
 
-        var g1 = d3.select("body")
+        g1 = d3.select("body")
                     .select(".grid")
                     .data(d)
                     .append("g")
@@ -47,7 +92,7 @@ ready = function(){
                     .call(onDragDrop(dragmove, dropHandler));
                    
            
-        var g2 = d3.select("body")
+        g2 = d3.select("body")
                    .select(".grid")
                    .data(d)
                    .append("g")
@@ -55,7 +100,7 @@ ready = function(){
                    .call(onDragDrop(dragmove, dropHandler)); 
 
         
-        var g3 = d3.select("body")
+        g3 = d3.select("body")
                     .select(".grid")
                     .data(d)
                     .append("g")
@@ -63,19 +108,19 @@ ready = function(){
                     .call(onDragDrop(dragmove, dropHandler));
 
 
-        var windgroup = g1.append("svg")
+         windgroup = g1.append("svg")
           .attr("id", "windsvg");
         
 
 
-        var temperaturegroup = g2.append("svg")
+        temperaturegroup = g2.append("svg")
           .attr("id", "temperaturesvg");
        
 
-        var humiditygroup = g3.append("svg")
+        humiditygroup = g3.append("svg")
           .attr("id", "humiditysvg");
 
-        var rect = windgroup.selectAll("div")
+        rect = windgroup.selectAll("div")
                         
 
 
@@ -101,31 +146,31 @@ ready = function(){
 
 
         d3.json("/topics/wind.json", function(error, json) {
+            beginning = slide*18+1
+            end = beginning + 17            
+            dataw = json.slice(beginning, end);
             
-            data = json;
-            console.log(data);
-            
-            windgroup.selectAll("circle").data(data)
+            windgroup.selectAll("circle").data(dataw)
                 .enter()
                 .append("circle")
                 .attr("r", 0)
                 .attr("cy", 40)
                 .attr("cx", function(d, i) {
-                    return 50 * (i-21)
+                    return 50 * i
                 })
                 .style('fill', 'deeppink')
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(500, 25)")
+                .attr("transform", "translate(26, 25)")
                 .transition()
                 .duration(1000) 
                 .delay(100)
                 .attr("r",function(d, i) {
-                    return xscale(d.speed/7)+40
+                    return xscale(d.speed/7)+30
                 }); 
 
 
-            windgroup.selectAll("text").data(data)
+            windgroup.selectAll("text").data(dataw)
                 .enter()
                 .append("text")
                 .attr("width",50)
@@ -143,7 +188,7 @@ ready = function(){
                     })
                 })
                 .attr("x", function(d, i) {
-                    return 50 * (i-21)
+                    return 50 * i
                 })
                 .text(function(d, i) {
                     return d3.round(d.speed) + " mps"
@@ -154,7 +199,7 @@ ready = function(){
 
         d3.json("/topics/temperature.json", function(error, json) {
 
-            datat = json;
+            datat = json.slice(1,18);;
            
             temperaturegroup.selectAll("circle").data(datat)
                 .enter()
@@ -162,12 +207,12 @@ ready = function(){
                 .attr("cy", 120)
                 .attr("r",0)
                 .attr("cx", function(d, i) {
-                    return 50 * (i-21)
+                    return 50 * i
                 })
                 .style("fill","gold")
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(500, 65)")
+                .attr("transform", "translate(26, 65)")
                 .transition()
                 .duration(1000) 
                 .delay(100)
@@ -193,7 +238,7 @@ ready = function(){
                     })
                 })
                 .attr("x", function(d, i) {
-                    return 50 * (i-21)
+                    return 50 * i
                 })
                 .text(function(d, i) {
                     return d3.round((d.temperature - 273.15)) + "°C";
@@ -205,7 +250,7 @@ ready = function(){
 
         d3.json("/topics/humidity.json", function(error, json) {
     
-            datas = json;
+            datas = json.slice(1,18);;
            
             humiditygroup.selectAll("circle").data(datas)
                 .enter()
@@ -213,17 +258,17 @@ ready = function(){
                 .attr("r",0)
                 .attr("cy", 200)
                 .attr("cx", function(d, i) {
-                    return 50 * (i-21)
+                    return 50 * i
                 })
                 .style("fill","dodgerblue")
                 .attr("height", 10)
                 .attr("width", 20)
-                .attr("transform", "translate(500, 100)")
+                .attr("transform", "translate(26, 100)")
                 .transition()
                 .duration(1000) 
                 .delay(100)
                 .attr("r", function(d, i) {
-                    return xscale(d.hum/80) });
+                    return xscale(d.hum/55) });
 
             humiditygroup.selectAll("text").data(datas)
                 .enter()
@@ -243,7 +288,7 @@ ready = function(){
                     })
                 })
                 .attr("x", function(d, i) {
-                    return 50 * (i-21)
+                    return 50 * i-21
                 })
                 .text(function(d, i) {
                     return d.hum + "%"
@@ -251,6 +296,9 @@ ready = function(){
                 .attr("class", "labels");
 
         });
+
+
+
 
         
 
