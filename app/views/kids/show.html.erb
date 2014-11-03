@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @kid.hours %>
+</p>
+
+<p>
+  <strong>Diameter:</strong>
+  <%= @kid.diameter %>
+</p>
+
+<p>
+  <strong>Pieces:</strong>
+  <%= @kid.pieces %>
+</p>
+
+<%= link_to 'Edit', edit_kid_path(@kid) %> |
+<%= link_to 'Back', kids_path %>

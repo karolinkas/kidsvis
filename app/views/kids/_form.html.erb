@@ -1,0 +1,29 @@
+<%= form_for(@kid) do |f| %>
+  <% if @kid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@kid.errors.count, "error") %> prohibited this kid from being saved:</h2>
+
+      <ul>
+      <% @kid.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "How many hours a day can you play computergames without getting bored?" %><br>
+    <%= f.number_field :hours %><span class="unit" > hours </span>
+  </div>
+  <div class="field">
+    <%= f.label "What´s the size of the maximum chewing-gum bubble that you can create?" %><br>
+    <%= f.number_field :diameter %><span class="unit"> cm </span>
+  </div>
+  <div class="field">
+    <%= f.label "How many pieces of chocolate can you eat at once?" %><br>
+    <%= f.number_field :pieces %> <span class="unit"> pieces </span>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
