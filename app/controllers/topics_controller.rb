@@ -20,7 +20,6 @@ class TopicsController < ApplicationController
 
 
 	def wind
-		
 		wind = []
 
 		Weatherdata.all.each do |object|
@@ -42,15 +41,11 @@ class TopicsController < ApplicationController
 
 	def temperature
 
+
 		temperature = []
-
-		Weatherdata.all.each do |object|
-
-			JSON.parse(object.blob)["list"].each do |it|
+			JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
 				temperature << {temperature: it["main"]["temp"]}
 		end
-
-	end
 
 		respond_to do |format|
 			format.json do
@@ -62,14 +57,9 @@ class TopicsController < ApplicationController
 	def humidity
 
 		humidity = []
-
-		Weatherdata.all.each do |object|
-
 				JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
 					humidity << {hum: it["clouds"]["all"]}
 			end
-
-		end
 
 	respond_to do |format|
 		format.json do
