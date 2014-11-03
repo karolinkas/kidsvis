@@ -1,5 +1,35 @@
 slide = 0
 
+function makeWind(){
+        d3.json("/topics/wind.json", function(error, json) {
+            beginning = slide*18+1
+            end = beginning + 17            
+            dataw = json.slice(beginning, end);
+
+            windgroup.selectAll("circle").remove();
+            windgroup.selectAll("circle").data(dataw)
+                                         .enter()
+                                         .append("circle")
+                                         .attr("r", 0)
+                                         .attr("cy", 40)
+                                         .attr("cx", function(d, i) {
+                                            return 50 * i
+                                         })
+                                         .style('fill', 'deeppink')
+                                         .attr("height", 10)
+                                         .attr("width", 20)
+                                         .attr("transform", "translate(26, 25)")
+                                         .transition()
+                                         .duration(1000) 
+                                         .delay(100)
+                                         .attr("r",function(d, i) {
+                                            return xscale(d.speed/7)+40
+                                         });
+        })
+
+    }
+
+
 function travelTime(ahead) {
     if(ahead) {
         slide += 1
@@ -7,33 +37,72 @@ function travelTime(ahead) {
         slide -= 1
     }
 
-    d3.json("/topics/wind.json", function(error, json) {
+    makeWind();
+    
+
+    
+    d3.json("/topics/temperature.json", function(error, json) {
+        beginning = slide*18+1
+        end = beginning + 17 
+        datat = json.slice(beginning, end);
+       
+        temperaturegroup.selectAll("circle").remove();
+        temperaturegroup.selectAll("circle").data(datat)
+                                            .enter()
+                                            .append("circle")
+                                            .attr("cy", 120)
+                                            .attr("r",0)
+                                            .attr("cx", function(d, i) {
+                                                return 50 * i
+                                            })
+                                            .style("fill","gold")
+                                            .attr("height", 10)
+                                            .attr("width", 20)
+                                            .attr("transform", "translate(26, 65)")
+                                            .transition()
+                                            .duration(1000) 
+                                            .delay(100)
+                                            .attr("r", function(d, i) {
+                                                return xscale(d.temperature/200) 
+                                            });
+    })
+
+    d3.json("/topics/humidity.json", function(error, json) {
+    
         beginning = slide*18+1
         end = beginning + 17            
-        dataw = json.slice(beginning, end);
+        datah = json.slice(beginning, end);
+           
+        humiditygroup.selectAll("circle").remove();
+        humiditygroup.selectAll("circle").data(datah)
+                .enter()
+                .append("circle")
+                .attr("r",0)
+                .attr("cy", 200)
+                .attr("cx", function(d, i) {
+                    return 50 * i
+                })
+                .style("fill","dodgerblue")
+                .attr("height", 10)
+                .attr("width", 20)
+                .attr("transform", "translate(26, 100)")
+                .transition()
+                .duration(1000) 
+                .delay(100)
+                .attr("r", function(d, i) {
+                    return xscale(d.hum/55) });
 
-        windgroup.selectAll("circle").remove();
-        windgroup.selectAll("circle").data(dataw)
-                                     .attr("class", "update")
-                                     .enter()
-                                     .append("circle")
-                                     .attr("r", 0)
-                                     .attr("cy", 40)
-                                     .attr("cx", function(d, i) {
-                                        return 50 * i
-                                     })
-                                     .style('fill', 'deeppink')
-                                     .attr("height", 10)
-                                     .attr("width", 20)
-                                     .attr("transform", "translate(26, 25)")
-                                     .transition()
-                                     .duration(1000) 
-                                     .delay(100)
-                                     .attr("r",function(d, i) {
-                                        return xscale(d.speed/7)+40
-                                     });
     })
+
+    
 }
+
+
+    
+
+
+
+
 
 function travelAhead() {
     travelTime(true);
@@ -199,7 +268,9 @@ ready = function(){
 
         d3.json("/topics/temperature.json", function(error, json) {
 
-            datat = json.slice(1,18);;
+            beginning = slide*18+1
+            end = beginning + 17            
+            datat = json.slice(beginning, end);
            
             temperaturegroup.selectAll("circle").data(datat)
                 .enter()
@@ -250,9 +321,11 @@ ready = function(){
 
         d3.json("/topics/humidity.json", function(error, json) {
     
-            datas = json.slice(1,18);;
+            beginning = slide*18+1
+            end = beginning + 17            
+            datah = json.slice(beginning, end);
            
-            humiditygroup.selectAll("circle").data(datas)
+            humiditygroup.selectAll("circle").data(datah)
                 .enter()
                 .append("circle")
                 .attr("r",0)
@@ -268,9 +341,9 @@ ready = function(){
                 .duration(1000) 
                 .delay(100)
                 .attr("r", function(d, i) {
-                    return xscale(d.hum/55) });
+                    return xscale(d.hum/30) });
 
-            humiditygroup.selectAll("text").data(datas)
+            humiditygroup.selectAll("text").data(datah)
                 .enter()
                 .append("text")
                 .attr("width",50)
@@ -298,9 +371,6 @@ ready = function(){
         });
 
 
-
-
-        
 
 } // Pageload
 

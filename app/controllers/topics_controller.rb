@@ -66,7 +66,7 @@ class TopicsController < ApplicationController
 		Weatherdata.all.each do |object|
 
 				JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
-					humidity << {hum: it["main"]["humidity"]}
+					humidity << {hum: it["clouds"]["all"]}
 			end
 
 		end
