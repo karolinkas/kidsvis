@@ -1,15 +1,5 @@
 class TopicsController < ApplicationController
-	
-	# attr_reader :wind, :temperature, :rain
 
- #  def initialize(wind, temperature, rain)
- #    @wind = wind
- #    @temperature = temperature
- #  end
-
- #  def from_json 
- #    {:wind => @wind, :temperature => @temperature, :rain => @rain }.from_json
- #  end
 
 	def index
 
@@ -23,14 +13,10 @@ class TopicsController < ApplicationController
 		
 		wind = []
 
-		Weatherdata.all.each do |object|
-
-			JSON.parse(object.blob)["list"].each do |it|
-				wind << {speed: it["wind"]["speed"]}
-			end
-
+		city = params[:city] || "Barcelona"
+		Weatherdata.by_city(city).each do |it|
+			wind << {speed: it["wind"]["speed"]}
 		end
-
 
 		respond_to do |format|
 			format.json do
@@ -44,13 +30,11 @@ class TopicsController < ApplicationController
 
 		temperature = []
 
-		Weatherdata.all.each do |object|
-
-			JSON.parse(object.blob)["list"].each do |it|
+		
+		city = params[:city] || "Barcelona"
+		Weatherdata.by_city(city).each do |it|
 				temperature << {temperature: it["main"]["temp"]}
 		end
-
-	end
 
 		respond_to do |format|
 			format.json do
@@ -63,12 +47,9 @@ class TopicsController < ApplicationController
 
 		humidity = []
 
-		Weatherdata.all.each do |object|
-
-				JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
-					humidity << {hum: it["clouds"]["all"]}
-			end
-
+		city = params[:city] || "Barcelona"
+		Weatherdata.by_city(city).each do |it|
+				humidity << {hum: it["clouds"]["all"]}
 		end
 
 	respond_to do |format|

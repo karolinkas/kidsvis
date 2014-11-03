@@ -28,7 +28,7 @@ gem 'spring',        group: :development
 
 gem 'd3_rails'
 
-gem 'turbolinks'
+# gem 'turbolinks'
 
 gem 'httparty'
 
