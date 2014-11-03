@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028120148) do
+ActiveRecord::Schema.define(version: 20141103100505) do
+
+  create_table "kids", force: true do |t|
+    t.integer  "hours"
+    t.integer  "diameter"
+    t.integer  "pieces"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "weatherdata", force: true do |t|
     t.text     "blob"

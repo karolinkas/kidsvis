@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'visi#index'
+  resources :kids
   resources :weatherdates 
   get "retrieve_data_fromAPI", to: "weatherdates#retrieve_data_fromAPI" 
   get "topics/wind", to: "topics#wind"
