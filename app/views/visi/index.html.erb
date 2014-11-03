@@ -1,7 +1,11 @@
 <link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 
+<%= form_tag("/", method: :get) do  %>
+ <%= text_field_tag :city %>
+ <%= submit_tag "Go" %>
+<% end %>
 
-<container>
+<container id="weather" data-city="<%= params[:city] %>">
 
 	<% if @timenow.hour>17&&@timenow.hour<22 %>
 	<h1>Good Evening</h1>
@@ -31,5 +35,7 @@
 </container>
 
 <button id="update">Update</button>
+<button id="back" onclick="travelBack()" > Back </button>
+<button id="ahead" onclick="travelAhead()" > Ahead </button>
 
 
