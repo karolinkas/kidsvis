@@ -1,6 +1,7 @@
 var ready;
 
-
+var width = 900;
+var height = 300;
 ready = function(){
 
 	d3.json("/kids.json", function(error, json) {
@@ -8,8 +9,8 @@ ready = function(){
 	  data = json
 	  
 	  var svg = d3.select("body").select("#mainkids")
-	                             .attr("height", 600)
-			                				 .attr("width", 1000)
+	                             .attr("height", height)
+			                				 .attr("width", width)
 
 		var xscale = d3.scale.linear().domain([d3.min(data), d3.max(data)]).range([0,width]);
 		var yscale = d3.scale.linear().domain([d3.min(data), d3.max(data)]).range([0,height]);
