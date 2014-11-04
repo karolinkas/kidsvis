@@ -40,6 +40,7 @@ container#weather{
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+		max-height: 900px;
 }
 
 
@@ -106,7 +107,7 @@ input#city{
 	padding-left: 10px;
 }
 
-form{
+text.labels{
 
 }
 
@@ -124,5 +125,17 @@ input[type="text"], textarea {
   font-family: 'Lora', serif;
   color: #666;
   font-size: 1em;
+
+}
+
+input[type="submit"], textarea {
+
+  background-color : gold;
+  font-family: Helvetica;
+  border: 0px;
+  outline:0px;
+  padding: 10px;
+  color: grey;
+  
 
 }

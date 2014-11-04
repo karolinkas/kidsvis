@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$niceblue: #1e90ff;
+
+
 ul{
  visibility: hidden;
 }
@@ -10,4 +13,22 @@ container#dashboard{
 
 	display: flex;
 	justify-content: center;
+}
+
+// img.icon :hover{
+	
+// 	background:$niceblue;
+// }
+ 
+a img.icon {
+
+	text-decoration: none;
+}
+
+
+
+img.icon {
+	
+	background:none;
+
 }
