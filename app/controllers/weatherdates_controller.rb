@@ -1,6 +1,0 @@
-class WeatherdatesController < ApplicationController
-
-
-	
-
-end

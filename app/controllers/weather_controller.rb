@@ -1,4 +1,4 @@
-class TopicsController < ApplicationController
+class WeatherController < ApplicationController
 
 
 	def index
@@ -10,6 +10,7 @@ class TopicsController < ApplicationController
 
 
 	def wind
+		
 		wind = []
 
 		city = params[:city] || "Barcelona"
@@ -27,17 +28,11 @@ class TopicsController < ApplicationController
 
 	def temperature
 
-<<<<<<< HEAD
-
-		temperature = []
-			JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
-=======
 		temperature = []
 
 		
 		city = params[:city] || "Barcelona"
 		Weatherdata.by_city(city).each do |it|
->>>>>>> cities
 				temperature << {temperature: it["main"]["temp"]}
 		end
 
@@ -51,17 +46,11 @@ class TopicsController < ApplicationController
 	def humidity
 
 		humidity = []
-<<<<<<< HEAD
-				JSON.parse(Weatherdata.find(1).blob)["list"].each do |it|
-					humidity << {hum: it["clouds"]["all"]}
-			end
-=======
 
 		city = params[:city] || "Barcelona"
 		Weatherdata.by_city(city).each do |it|
 				humidity << {hum: it["clouds"]["all"]}
 		end
->>>>>>> cities
 
 	respond_to do |format|
 		format.json do

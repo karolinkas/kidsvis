@@ -16,7 +16,7 @@ ready = function() {
                     slide -= 1
                 }
 
-             d3.json("/topics/wind.json?city=" + weather.data("city"), function(error, json) {
+             d3.json("/weather/wind.json?city=" + weather.data("city"), function(error, json) {
                 beginning = slide * 10 + 1
                 end = beginning + 9
                 dataw = json.slice(beginning, end);
@@ -44,7 +44,7 @@ ready = function() {
 
 
 
-                d3.json("/topics/temperature.json?city=" + weather.data("city"), function(error, json) {
+                d3.json("/weather/temperature.json?city=" + weather.data("city"), function(error, json) {
                     beginning = slide * 10 + 1
                     end = beginning + 9
                     datat = json.slice(beginning, end);
@@ -70,7 +70,7 @@ ready = function() {
                         });
                 })
 
-                d3.json("/topics/humidity.json?city=" + weather.data("city"), function(error, json) {
+                d3.json("/weather/humidity.json?city=" + weather.data("city"), function(error, json) {
 
                     beginning = slide * 10 + 1
                     end = beginning + 9
@@ -236,7 +236,7 @@ ready = function() {
 
 
 
-            d3.json("/topics/wind.json?city=" + weather.data("city"), function(error, json) {
+            d3.json("/weather/wind.json?city=" + weather.data("city"), function(error, json) {
                 beginning = slide * 10 + 1
                 end = beginning + 9
                 dataw = json.slice(beginning, end);
@@ -289,7 +289,7 @@ ready = function() {
 
             });
 
-            d3.json("/topics/temperature.json?city=" + weather.data("city"), function(error, json) {
+            d3.json("/weather/temperature.json?city=" + weather.data("city"), function(error, json) {
 
 
                 beginning = slide * 10 + 1
@@ -347,7 +347,7 @@ ready = function() {
 
             });
 
-            d3.json("/topics/humidity.json?city=" + weather.data("city"), function(error, json) {
+            d3.json("/weather/humidity.json?city=" + weather.data("city"), function(error, json) {
 
 
                 beginning = slide * 10 + 1
