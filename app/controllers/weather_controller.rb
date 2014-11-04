@@ -1,4 +1,4 @@
-class WeathersController < ApplicationController
+class WeatherController < ApplicationController
 
 
 	def index

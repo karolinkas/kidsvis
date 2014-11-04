@@ -30,36 +30,20 @@ body{
 
 .labels{
 	font-size: 2em;	
-	display: block;
-	width: 190px;
-	background-color: white;
-	max-width: 190px;
-	min-height: 5px;
-	height: auto;
-	max-height: 185px;
-	margin: 0;
-	padding: 0;
-	overflow-y: auto;
-	overflow-x: hidden !important;
-	text-align: left;
-	fill: white;
+	
 
 }
 
-container{
+container#weather{
 		// outline: solid black 1px;
-		// display: flex;
-		// justify-content: center;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
 }
 
-.mainsvg{
-		transform: translate(100px,200px);
-		
-		// background-image: url(bluepattern.png);
-		// opacity: 0.5;
-}
 
-.grid {
+
+svg.grid {
   background-image: linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px);
   background-size: 96px 96px, 96px 96px, 12px 12px, 12px 12px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
@@ -76,12 +60,13 @@ container{
 
 h1{
 	line-height:12px;
+
 }
 
 .icons{
 		position: absolute;
-		top: 120px;
-		left:150px;
+		top: 160px;
+		left:180px;
 		display: flex;
 		flex-direction: column;
 		justify-content: left;
@@ -92,4 +77,14 @@ h1{
 		margin-top: 10px; 
 		margin-bottom: 10px;
 		
+}
+
+ul{
+	
+	position:fixed;
+  top:0px;
+}
+
+li{
+	display: inline-block;
 }

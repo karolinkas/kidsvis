@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   resources :kids
  
 
-  get 'weathers', to: 'weather#index'
-  get "weathers/wind", to: "weather#wind"
-  get "weathers/temperature", to: "weather#temperature"
-  get "weathers/humidity", to: "weather#humidity"
+  get 'weather', to: 'weather#index'
+  get "weather/wind", to: "weather#wind"
+  get "weather/temperature", to: "weather#temperature"
+  get "weather/humidity", to: "weather#humidity"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
