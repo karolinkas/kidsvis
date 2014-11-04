@@ -2,15 +2,19 @@
 <html>
 <head>
   <title>Kidsvis</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<ul>
-<li><%= link_to "My data!", new_kid_path %></li>
-<li><%= link_to "Weather", weather_path %></li>
-</ul>
+
+<nav>
+	<ul>
+	<li><%= link_to "My data", new_kid_path %></li>
+	<li><%= link_to "Weather", weather_path %></li>
+	</ul>
+</nav>
+
 
 
 <%= yield %>

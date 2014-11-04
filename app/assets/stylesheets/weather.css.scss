@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+g.x.axis{
+	fill: #666;
+}
 .axis path,
 .axis line {
   fill: none;
@@ -37,6 +40,8 @@ body{
 
 container#weather{
 		// outline: solid black 1px;
+		position: relative;
+		top: 20px;
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
@@ -62,23 +67,22 @@ svg.grid {
 
 h1{
 	line-height:12px;
-
+	margin-top: 20px;
+	margin-bottom: 20px;
 
 }
 
 .icons{
 		position: absolute;
-		top: 160px;
-		left:180px;
+		top: 60px;
+		left:150px;
 		display: flex;
-		flex-direction: column;
-		justify-content: left;
-		align-items: flex-start;
+		flex-direction: column;	
 }
 
 .icon{
-		margin-top: 10px; 
-		margin-bottom: 10px;
+		margin-top: 12px; 
+		margin-bottom: 12px;
 		
 }
 
@@ -89,6 +93,8 @@ ul{
 }
 
 li{
+
+	margin-right: 10px;
 	display: inline-block;
 	
 }
@@ -108,9 +114,16 @@ input#city{
 }
 
 text.labels{
-
+	color: grey;
 }
 
+
+form{
+	// position: fixed;
+	// top: 80px;
+	margin-top: 40px;
+
+}
 form label{
 	position: relative;
 	top: 2px;
@@ -122,7 +135,7 @@ form label{
 input[type="text"], textarea {
 
   background-color : #e9f9fb;
-  font-family: 'Lora', serif;
+  font-family: 'Istok Web', sans-serif;
   color: #666;
   font-size: 1em;
 
@@ -130,12 +143,40 @@ input[type="text"], textarea {
 
 input[type="submit"], textarea {
 
-  background-color : gold;
-  font-family: Helvetica;
+  background-color : #a1a1a1;
+  font-family: Tahoma;
   border: 0px;
   outline:0px;
-  padding: 10px;
-  color: grey;
+  padding: 7px;
+  color: white;
+  font-size: 1.0em;
+  font-weight: bold;
   
-
 }
+
+a{
+	color: #666;
+	text-decoration: none;
+}
+
+nav {
+	color: white;
+	left: 0px;
+	top: 0px;
+	background-color: #1e90ff;
+	height: 50px;
+	margin: 0px auto;
+	width: 100%;
+	position: fixed;
+}
+
+nav a{
+	color: white;
+	font-family: 'Istok Web', sans-serif;
+	font-weight: bold;
+}
+
+// div#superform{
+// 	position: absolute;
+// 	top:  80px;
+// }

@@ -1,10 +1,13 @@
 <link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link href="http://fonts.googleapis.com/css?family=Istok+Web:700" rel="stylesheet" type="text/css">
 
+<div id="superform">
 <%= form_tag("/weather", method: :get) do  %>
  <%= label_tag 'City' %>
  <%= text_field_tag :city  %>
  <%= submit_tag "Go" %>
 <% end %>
+</div>
 
 <container id="weather" data-city="<%= params[:city] %>">
 
