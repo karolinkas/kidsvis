@@ -1,7 +1,8 @@
 <link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 
 <%= form_tag("/weather", method: :get) do  %>
- <%= text_field_tag :city %>
+ <%= label_tag 'City' %>
+ <%= text_field_tag :city  %>
  <%= submit_tag "Go" %>
 <% end %>
 
