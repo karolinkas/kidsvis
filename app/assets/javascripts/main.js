@@ -20,7 +20,7 @@ ready = function() {
                 beginning = slide * 10 + 1
                 end = beginning + 9
                 dataw = json.slice(beginning, end);
-
+                console.log(dataw);
                 windgroup.selectAll("circle").remove();
                 windgroup.selectAll("circle").data(dataw)
                     .enter()
@@ -246,7 +246,7 @@ ready = function() {
                     .enter()
                     .append("circle")
                     .attr("r", 0)
-                    .attr("cy", 40)
+                    .attr("cy", 45)
                     .attr("cx", function(d, i) {
                         return 90 * i 
                     })
@@ -268,7 +268,7 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .style("opacity", 0)
-                    .attr("y", 40)
+                    .attr("y", 45)
                     .on('mouseover', function(d) {
                         d3.select(this).style({
                             opacity: '1.0'
@@ -302,7 +302,7 @@ ready = function() {
                 temperaturegroup.selectAll("circle").data(datat)
                     .enter()
                     .append("circle")
-                    .attr("cy", 120)
+                    .attr("cy", 180)
                     .attr("r", 0)
                     .attr("cx", function(d, i) {
                         return 90 * i 
@@ -325,7 +325,7 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .style("opacity", 0)
-                    .attr("y", 120)
+                    .attr("y", 180)
                     .on('mouseover', function(d) {
                         d3.select(this).style({
                             opacity: '1.0'

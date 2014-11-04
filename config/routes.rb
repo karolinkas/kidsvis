@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
-  resources :kids
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'visi#index'
+  root 'dashboard#index'
 
   resources :kids
  
 
-  
-  get "weather/wind", to: "weather#wind"
-  get "weather/temperature", to: "weather#temperature"
-  get "weather/humidity", to: "weather#humidity"
-  get "weather", to: "weather#index"
+  get 'weathers', to: 'weather#index'
+  get "weathers/wind", to: "weather#wind"
+  get "weathers/temperature", to: "weather#temperature"
+  get "weathers/humidity", to: "weather#humidity"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

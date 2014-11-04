@@ -1,10 +1,9 @@
-class WeatherController < ApplicationController
+class WeathersController < ApplicationController
 
 
 	def index
+		@timenow = Time.now
 
-		@data = Weatherdata.all
-		@date = Weatherdata.find(1).blob
 	end
 
 
@@ -14,7 +13,7 @@ class WeatherController < ApplicationController
 		wind = []
 
 		city = params[:city] || "Barcelona"
-		Weatherdata.by_city(city).each do |it|
+		Weather.by_city(city).each do |it|
 			wind << {speed: it["wind"]["speed"]}
 		end
 
@@ -32,7 +31,7 @@ class WeatherController < ApplicationController
 
 		
 		city = params[:city] || "Barcelona"
-		Weatherdata.by_city(city).each do |it|
+		Weather.by_city(city).each do |it|
 				temperature << {temperature: it["main"]["temp"]}
 		end
 
@@ -48,7 +47,7 @@ class WeatherController < ApplicationController
 		humidity = []
 
 		city = params[:city] || "Barcelona"
-		Weatherdata.by_city(city).each do |it|
+		Weather.by_city(city).each do |it|
 				humidity << {hum: it["clouds"]["all"]}
 		end
 

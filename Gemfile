@@ -32,7 +32,8 @@ gem 'd3_rails'
 
 gem 'httparty'
 
-gem 'country_select', '~> 2.1.0'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

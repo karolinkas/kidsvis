@@ -1,0 +1,95 @@
+// Place all the styles related to the weatherdates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis path {
+  display: none;
+}
+
+body{
+	font-family: 'Lora', serif;
+	padding: 20px;
+	color: white;
+	background-image: url(bedge_grunge.png);
+	line-height:20px;
+}
+
+#DoIt{
+	position: absolute;
+	top:10px;
+	left: 10px;
+}
+
+
+.labels{
+	font-size: 2em;	
+	display: block;
+	width: 190px;
+	background-color: white;
+	max-width: 190px;
+	min-height: 5px;
+	height: auto;
+	max-height: 185px;
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	overflow-x: hidden !important;
+	text-align: left;
+	fill: white;
+
+}
+
+container{
+		// outline: solid black 1px;
+		// display: flex;
+		// justify-content: center;
+}
+
+.mainsvg{
+		transform: translate(100px,200px);
+		
+		// background-image: url(bluepattern.png);
+		// opacity: 0.5;
+}
+
+.grid {
+  background-image: linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px);
+  background-size: 96px 96px, 96px 96px, 12px 12px, 12px 12px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+  position: relative;
+  top: 100;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  margin: auto;
+  // outline:1px red solid;
+}
+
+
+h1{
+	line-height:12px;
+}
+
+.icons{
+		position: absolute;
+		top: 120px;
+		left:150px;
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: flex-start;
+}
+
+.icon{
+		margin-top: 10px; 
+		margin-bottom: 10px;
+		
+}

@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<ul>
+<li><%= link_to "My data!", new_kid_path %></li>
+<li><%= link_to "Weather", weather_path %></li>
+</ul>
+
 
 <%= yield %>
 

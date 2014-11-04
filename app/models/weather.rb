@@ -1,4 +1,4 @@
-class Weatherdata
+class Weather
 
 	def self.by_city(city)
 		url = "http://api.openweathermap.org/data/2.5/forecast?q=#{city}"
