@@ -17,8 +17,8 @@ ready = function() {
                 }
 
              d3.json("/topics/wind.json?city=" + weather.data("city"), function(error, json) {
-                beginning = slide * 18 + 1
-                end = beginning + 17
+                beginning = slide * 10 + 1
+                end = beginning + 9
                 dataw = json.slice(beginning, end);
 
                 windgroup.selectAll("circle").remove();
@@ -28,12 +28,12 @@ ready = function() {
                     .attr("r", 0)
                     .attr("cy", 40)
                     .attr("cx", function(d, i) {
-                        return 50 * i
+                        return 90 * i
                     })
                     .style('fill', 'deeppink')
                     .attr("height", 10)
                     .attr("width", 20)
-                    .attr("transform", "translate(26, 25)")
+                    .attr("transform", "translate(50, 0)")
                     .transition()
                     .duration(1000)
                     .delay(100)
@@ -45,8 +45,8 @@ ready = function() {
 
 
                 d3.json("/topics/temperature.json?city=" + weather.data("city"), function(error, json) {
-                    beginning = slide * 18 + 1
-                    end = beginning + 17
+                    beginning = slide * 10 + 1
+                    end = beginning + 9
                     datat = json.slice(beginning, end);
 
                     temperaturegroup.selectAll("circle").remove();
@@ -56,12 +56,12 @@ ready = function() {
                         .attr("cy", 120)
                         .attr("r", 0)
                         .attr("cx", function(d, i) {
-                            return 50 * i
+                            return 90 * i
                         })
                         .style("fill", "gold")
                         .attr("height", 10)
                         .attr("width", 20)
-                        .attr("transform", "translate(26, 65)")
+                        .attr("transform", "translate(50, 0)")
                         .transition()
                         .duration(1000)
                         .delay(100)
@@ -72,8 +72,8 @@ ready = function() {
 
                 d3.json("/topics/humidity.json?city=" + weather.data("city"), function(error, json) {
 
-                    beginning = slide * 18 + 1
-                    end = beginning + 17
+                    beginning = slide * 10 + 1
+                    end = beginning + 9
                     datah = json.slice(beginning, end);
 
                     humiditygroup.selectAll("circle").remove();
@@ -83,12 +83,12 @@ ready = function() {
                         .attr("r", 0)
                         .attr("cy", 200)
                         .attr("cx", function(d, i) {
-                            return 50 * i
+                            return 90 * i
                         })
                         .style("fill", "dodgerblue")
                         .attr("height", 10)
                         .attr("width", 20)
-                        .attr("transform", "translate(26, 100)")
+                        .attr("transform", "translate(50, 0)")
                         .transition()
                         .duration(1000)
                         .delay(100)
@@ -237,8 +237,8 @@ ready = function() {
 
 
             d3.json("/topics/wind.json?city=" + weather.data("city"), function(error, json) {
-                beginning = slide * 18 + 1
-                end = beginning + 17
+                beginning = slide * 10 + 1
+                end = beginning + 9
                 dataw = json.slice(beginning, end);
 
 
@@ -248,12 +248,12 @@ ready = function() {
                     .attr("r", 0)
                     .attr("cy", 40)
                     .attr("cx", function(d, i) {
-                        return 50 * i 
+                        return 90 * i 
                     })
                     .style('fill', 'deeppink')
                     .attr("height", 10)
                     .attr("width", 20)
-                    .attr("transform", "translate(500, 25)")
+                    .attr("transform", "translate(50, 0)")
                     .transition()
                     .duration(1000)
                     .delay(100)
@@ -268,7 +268,7 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .style("opacity", 0)
-                    .attr("y", 60)
+                    .attr("y", 40)
                     .on('mouseover', function(d) {
                         d3.select(this).style({
                             opacity: '1.0'
@@ -280,7 +280,7 @@ ready = function() {
                         })
                     })
                     .attr("x", function(d, i) {
-                        return 50 * i
+                        return 90 * i
                     })
                     .text(function(d, i) {
                         return d3.round(d.speed) + " mps"
@@ -292,8 +292,8 @@ ready = function() {
             d3.json("/topics/temperature.json?city=" + weather.data("city"), function(error, json) {
 
 
-                beginning = slide * 18 + 1
-                end = beginning + 17
+                beginning = slide * 10 + 1
+                end = beginning + 9
                 datat = json.slice(beginning, end);
 
 
@@ -305,12 +305,12 @@ ready = function() {
                     .attr("cy", 120)
                     .attr("r", 0)
                     .attr("cx", function(d, i) {
-                        return 50 * i 
+                        return 90 * i 
                     })
                     .style("fill", "gold")
                     .attr("height", 10)
                     .attr("width", 20)
-                    .attr("transform", "translate(500, 65)")
+                    .attr("transform", "translate(50, 0)")
                     .transition()
                     .duration(1000)
                     .delay(100)
@@ -325,7 +325,7 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .style("opacity", 0)
-                    .attr("y", 190)
+                    .attr("y", 120)
                     .on('mouseover', function(d) {
                         d3.select(this).style({
                             opacity: '1.0'
@@ -337,7 +337,7 @@ ready = function() {
                         })
                     })
                     .attr("x", function(d, i) {
-                        return 50 * i 
+                        return 90 * i 
                     })
                     .text(function(d, i) {
                         return d3.round((d.temperature - 273.15)) + "°C";
@@ -350,8 +350,8 @@ ready = function() {
             d3.json("/topics/humidity.json?city=" + weather.data("city"), function(error, json) {
 
 
-                beginning = slide * 18 + 1
-                end = beginning + 17
+                beginning = slide * 10 + 1
+                end = beginning + 9
                 datah = json.slice(beginning, end);
 
 
@@ -361,14 +361,14 @@ ready = function() {
                     .enter()
                     .append("circle")
                     .attr("r", 0)
-                    .attr("cy", 200)
+                    .attr("cy", 290)
                     .attr("cx", function(d, i) {
-                        return 50 * i
+                        return 90 * i
                     })
                     .style("fill", "dodgerblue")
                     .attr("height", 10)
                     .attr("width", 20)
-                    .attr("transform", "translate(500, 100)")
+                    .attr("transform", "translate(50, 0)")
                     .transition()
                     .duration(1000)
                     .delay(100)
@@ -385,7 +385,7 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .style("opacity", 0)
-                    .attr("y", 300)
+                    .attr("y", 290)
                     .on('mouseover', function(d) {
                         d3.select(this).style({
                             opacity: '1.0'
@@ -397,7 +397,7 @@ ready = function() {
                         })
                     })
                     .attr("x", function(d, i) {
-                        return 50 * i 
+                        return 90 * i 
                     })
                     .text(function(d, i) {
                         return d.hum + "%"
