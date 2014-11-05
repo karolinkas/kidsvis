@@ -4,9 +4,7 @@ var width = 700;
 var height = 400;
 ready = function(){
 
-	d3.json("/kids.json", function(error, json) {
-
-	  data = json
+	d3.json("/kids.json", function(error, data) {
 	  
 	  var svg = d3.select("body").select("#mainkids")
 	                             .attr("height", height)
@@ -16,17 +14,44 @@ ready = function(){
 		var yscale = d3.scale.linear().domain([d3.min(data), d3.max(data)]).range([0,height]);
 				
 
-		svg.selectAll("g.node")
-													.data(data)
+		// .style("opacity", 0)
+  //                   .attr("y", 45)
+  //                   .on('mouseover', function(d) {
+  //                       d3.select(this).style({
+  //                           opacity: '1.0'
+  //                       })
+  //                   })
+  //                   .on('mouseout', function(d) {
+  //                       d3.select(this).style({
+  //                           opacity: '0.0'
+  //                       })
+  //                   })
+
+
+    svg.selectAll("text").data(data)
+													.enter()
+													.append("text") 
+													.attr("transform", function(d, i) {	
+													var factor = d.diameter/20,
+													translate = "translate("+90*i+","+90+")",
+													scale = "scale(" + factor + ")";								 
+													return translate;
+													})
+													.attr("fill","white")
+													.text(function(d,i){
+														return d.diameter
+													});
+                
+
+
+		svg.selectAll("g.node").data(data)
 													.enter()
 													.append("g") 
 													.attr("transform", function(d, i) {	
-													var factor = d.diameter/20,
-													position = 60 * i * factor,
-													translate = "translate("+80*i+","+50+")",
-													scale = "scale(" + factor + ")";
-													 
-													return translate + " " + scale;
+													  var factor = d.diameter/20,
+													  translate = "translate("+90*i+","+90+")",
+													  scale = "scale(" + factor + ")";								 
+													  return translate + " " + scale;
 													})
 													.append("use") 
 													.attr("xlink:href", "#bubble");
@@ -37,7 +62,6 @@ ready = function(){
 }
 
 $(document).ready(ready);
-$(document).on('page:load', ready);
 
 
 

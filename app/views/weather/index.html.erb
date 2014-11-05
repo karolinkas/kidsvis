@@ -10,7 +10,7 @@
 <% end %>
 </div>
 
-<container id="weather" data-city="<%= params[:city] %>">
+<container id="weather" data-city="<%= params[:city].present? ? params[:city] : "Barcelona" %>">
 
 	<% if @timenow.hour>17&&@timenow.hour<22 %>
 	<h1 class="time">Good Evening</h1>

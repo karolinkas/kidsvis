@@ -28,7 +28,7 @@ class KidsController < ApplicationController
 
     respond_to do |format|
       if @kid.save
-        format.html { redirect_to @kid, notice: 'Your data was successfully created.' }
+        format.html { redirect_to kids_path, notice: 'Your data was successfully created.' }
         format.json { render :index, status: :created, location: @kid }
       else
         format.html { render :new }
