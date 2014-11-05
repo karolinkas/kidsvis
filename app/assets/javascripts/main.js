@@ -267,6 +267,7 @@ ready = function() {
                     .append("text")
                     .attr("width", 50)
                     .attr("height", 20)
+                    .attr("fill", "white")
                     .style("opacity", 0)
                     .attr("y", 45)
                     .on('mouseover', function(d) {
@@ -324,6 +325,7 @@ ready = function() {
                     .append("text")
                     .attr("width", 50)
                     .attr("height", 20)
+                    .attr("fill", "white")
                     .style("opacity", 0)
                     .attr("y", 180)
                     .on('mouseover', function(d) {
@@ -384,6 +386,7 @@ ready = function() {
                     .append("text")
                     .attr("width", 50)
                     .attr("height", 20)
+                    .attr("fill", "white")
                     .style("opacity", 0)
                     .attr("y", 290)
                     .on('mouseover', function(d) {

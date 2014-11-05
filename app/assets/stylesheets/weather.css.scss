@@ -8,7 +8,7 @@ g.x.axis{
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  // stroke: #000;
   shape-rendering: crispEdges;
 }
 
@@ -46,6 +46,7 @@ container#weather{
 		justify-content: center;
 		flex-direction: column;
 		max-height: 900px;
+
 }
 
 
@@ -61,21 +62,25 @@ svg.grid {
   left: 0;
   display: block;
   margin: auto;
-  
+ //  -moz-box-shadow: 0 0 15px #fff;
+	// -webkit-box-shadow: 0 0 15px #fff;
+	// box-shadow: 0px 0px 15px #fff;  
 }
 
 
 h1{
+	font-size: 1.5em;
 	line-height:12px;
-	margin-top: 20px;
+	margin-top: 25px;
 	margin-bottom: 20px;
+	margin-left: 260px;
 
 }
 
 .icons{
 		position: absolute;
 		top: 60px;
-		left:150px;
+		left:145px;
 		display: flex;
 		flex-direction: column;	
 }
@@ -86,10 +91,17 @@ h1{
 		
 }
 
+img.logo{
+	position: relative;
+	top: 0.5px;
+	
+}
+
 ul{
 	
 	position:fixed;
   top:0px;
+  vertical-align: middle;
 }
 
 li{
@@ -103,9 +115,9 @@ li a{
 	text-decoration: none;
 }
 
-input#city{
+input{
 	width: 150px;
-	border-radius: 10px;
+	border-radius: 5px;
 	height: 30px;
 	margin: 5px;
 	outline: 0;
@@ -134,7 +146,7 @@ form label{
 
 input[type="text"], textarea {
 
-  background-color : #e9f9fb;
+  background-color : white;
   font-family: 'Istok Web', sans-serif;
   color: #666;
   font-size: 1em;
@@ -144,13 +156,15 @@ input[type="text"], textarea {
 input[type="submit"], textarea {
 
   background-color : #a1a1a1;
-  font-family: Tahoma;
+  font-family: 'Istok Web', sans-serif;
   border: 0px;
   outline:0px;
-  padding: 7px;
+  padding: 5px;
   color: white;
   font-size: 1.0em;
   font-weight: bold;
+  border-radius: 5px;
+
   
 }
 
@@ -160,7 +174,7 @@ a{
 }
 
 nav {
-	color: white;
+	
 	left: 0px;
 	top: 0px;
 	background-color: #1e90ff;
@@ -168,15 +182,32 @@ nav {
 	margin: 0px auto;
 	width: 100%;
 	position: fixed;
+	opacity: 0.5;
+}
+
+nav:hover {
+	opacity: 1;
 }
 
 nav a{
-	color: white;
+	color: #EBECE4;
 	font-family: 'Istok Web', sans-serif;
 	font-weight: bold;
 }
 
-// div#superform{
-// 	position: absolute;
-// 	top:  80px;
-// }
+button.timetravel{
+	background-color : #a1a1a1;
+  font-family: 'Istok Web', sans-serif;
+  border: 0px;
+  outline:0px;
+  padding: 7px;
+  color: white;
+  font-size: 1.0em;
+  font-weight: bold;
+  width: 60px;
+  margin-top:15px;
+  margin-left: 260px;
+  border-radius: 5px;
+
+
+}
