@@ -49,7 +49,7 @@ body{
 
 
 .labels{
-	font-size: 2.5em;		
+	font-size: 2.0em;		
 }
 
 container#weather{
@@ -190,6 +190,7 @@ a{
 }
 
 nav {
+
 	background-color: #1e90ff;
 	background-image: url(http://www.transparenttextures.com/patterns/tiny-grid.png);
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
@@ -211,6 +212,7 @@ nav a{
 	color: #EBECE4;
 	font-family: 'Istok Web', sans-serif;
 	font-weight: bold;
+
 }
 
 button.timetravel{
