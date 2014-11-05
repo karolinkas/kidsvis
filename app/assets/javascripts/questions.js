@@ -1,7 +1,7 @@
 var ready;
 
 var width = 700;
-var height = 300;
+var height = 400;
 ready = function(){
 
 	d3.json("/kids.json", function(error, json) {
@@ -14,31 +14,25 @@ ready = function(){
 
 		var xscale = d3.scale.linear().domain([d3.min(data), d3.max(data)]).range([0,width]);
 		var yscale = d3.scale.linear().domain([d3.min(data), d3.max(data)]).range([0,height]);
-		
-			                				 
+				
 
-	  svg.selectAll("circle").data(data)
-			                .enter()
-			                .append("circle")
-			                .attr("r", 0)
-			                .attr("cy", function(d, i) {
-			                    return 20*d.hours
-			                })
-			                .attr("cx", function(d, i) {
-			                    return 50 * i
-			                })
-			                .style('fill', 'deeppink')
-			                .attr("height", 10)
-			                .attr("width", 20)
-			                .attr('transform', "translate(50 ,50 )")
-			                .transition()
-			                .duration(1000) 
-			                .delay(100)
-			                .attr("r",5); 
+		svg.selectAll("g.node")
+													.data(data)
+													.enter()
+													.append("g") 
+													.attr("transform", function(d, i) {	
+													var factor = d.diameter/20,
+													position = 60 * i * factor,
+													translate = "translate("+80*i+","+50+")",
+													scale = "scale(" + factor + ")";
+													 
+													return translate + " " + scale;
+													})
+													.append("use") 
+													.attr("xlink:href", "#bubble");
 
-
-
-		})
+	})
+											
 
 }
 

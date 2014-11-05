@@ -2,20 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@font-face {
-      font-family: "Lora";
-      src: url(/assets/fonts/Lora-Bold.ttf) format("truetype");
-  }
+// @font-face {
+//       font-family: "Lora";
+//       src: url(/assets/fonts/Lora-Bold.ttf) format("truetype");
+//   }
 
-@font-face {
-      font-family: "Pacifio";
-      src: url(/assets/fonts/Pacifico.ttf) format("truetype");
-  }
+// @font-face {
+//       font-family: "Pacifio";
+//       src: url(/assets/fonts/Pacifico.ttf) format("truetype");
+//   }
 
- @font-face {
-        font-family: "IstokWeb";
-        src: url(/assets/fonts/IstokWeb-Bold.ttf) format("truetype");
-    }
+//  @font-face {
+//         font-family: "IstokWeb";
+//         src: url(/assets/fonts/IstokWeb-Bold.ttf) format("truetype");
+//     }
 
 
 	
@@ -80,7 +80,7 @@ svg.grid {
   left: 0;
   display: block;
   margin: auto;
-  //white outline
+  //white shadow
  //  -moz-box-shadow: 0 0 15px #fff;
 	// -webkit-box-shadow: 0 0 15px #fff;
 	// box-shadow: 0px 0px 15px #fff;  
@@ -113,8 +113,8 @@ h1.time{
 }
 
 span.logo{
-	font: 400 95px/1.6 'Pacifico', serif !important;
-	font-size: 1.5em !important;	
+	font: 400 95px/1.6 'Pacifico', serif;
+	font-size: 1.5em;	
 }
 
 ul{
@@ -167,7 +167,7 @@ form label{
 input[type="text"], textarea {
 
   background-color : white;
-  font-family: 'IstokWeb';
+  font-family: 'Istok Web', sans-serif;
   color: #666;
   font-size: 1em;
 
@@ -176,7 +176,7 @@ input[type="text"], textarea {
 input[type="submit"], textarea {
 
   background-color : #a1a1a1;
-  font-family: 'IstokWeb';
+  font-family: 'Istok Web', sans-serif;
   border: 0px;
   outline:0px;
   padding: 5px;
@@ -213,13 +213,13 @@ nav:hover {
 
 nav a{
 	color: #EBECE4;
-	font-family: 'IstokWeb';
+	font-family: 'Istok Web', sans-serif;
 	font-weight: bold;
 }
 
 button.timetravel{
 	background-color : #a1a1a1;
-  font-family: 'IstokWeb';
+  font-family: 'Istok Web', sans-serif;
   border: 0px;
   outline:0px;
   padding: 7px;
