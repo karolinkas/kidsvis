@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face {
+      font-family: "Lora";
+      src: url(/assets/fonts/Lora-Bold.ttf) format("truetype");
+  }
+
+@font-face {
+      font-family: "Pacifio";
+      src: url(/assets/fonts/Pacifico.ttf) format("truetype");
+  }
+
+ @font-face {
+        font-family: "IstokWeb";
+        src: url(/assets/fonts/IstokWeb-Bold.ttf) format("truetype");
+    }
+
+
+	
+
 g.x.axis{
 	fill: #666;
 }
@@ -62,23 +80,21 @@ svg.grid {
   left: 0;
   display: block;
   margin: auto;
+  //white outline
  //  -moz-box-shadow: 0 0 15px #fff;
 	// -webkit-box-shadow: 0 0 15px #fff;
 	// box-shadow: 0px 0px 15px #fff;  
 }
 
 
-h1{
+
+
+h1.time{
 	font-size: 1.5em;
 	line-height:12px;
 	margin-top: 6px;
 	margin-bottom: 10px;
 	margin-left: 260px;
-
-}
-
-h1.time{
-
 
 }
 
@@ -96,10 +112,9 @@ h1.time{
 		
 }
 
-span#logo{
-	font: 400 95px/1.6 'Pacifico', Georgia, serif;
-	font-size: 1.5em;
-	
+span.logo{
+	font: 400 95px/1.6 'Pacifico', serif !important;
+	font-size: 1.5em !important;	
 }
 
 ul{
@@ -152,7 +167,7 @@ form label{
 input[type="text"], textarea {
 
   background-color : white;
-  font-family: 'Istok Web', sans-serif;
+  font-family: 'IstokWeb';
   color: #666;
   font-size: 1em;
 
@@ -161,7 +176,7 @@ input[type="text"], textarea {
 input[type="submit"], textarea {
 
   background-color : #a1a1a1;
-  font-family: 'Istok Web', sans-serif;
+  font-family: 'IstokWeb';
   border: 0px;
   outline:0px;
   padding: 5px;
@@ -198,13 +213,13 @@ nav:hover {
 
 nav a{
 	color: #EBECE4;
-	font-family: 'Istok Web', sans-serif;
+	font-family: 'IstokWeb';
 	font-weight: bold;
 }
 
 button.timetravel{
 	background-color : #a1a1a1;
-  font-family: 'Istok Web', sans-serif;
+  font-family: 'IstokWeb';
   border: 0px;
   outline:0px;
   padding: 7px;

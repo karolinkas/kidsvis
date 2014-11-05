@@ -1,16 +1,15 @@
 <container id="dashboard">
 	
-	<div id="decision">
-		Learn about the weather.
-	</div>
+
+	<div id="decision"><%= link_to "Make your own data.", new_kid_path %></div>
+	
 
 	<div id="iconentry">
 	<%= link_to image_tag("sun.png", class: "sun"), weather_path %>
 	</div>
 
-	<div id="decision">
-		Make your own data.
-	</div>
+<div id="decision"><%= link_to "Learn about the weather.", weather_path %></div>
+	
 
 </container>
 

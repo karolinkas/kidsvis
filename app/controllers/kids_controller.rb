@@ -29,7 +29,7 @@ class KidsController < ApplicationController
     respond_to do |format|
       if @kid.save
         format.html { redirect_to @kid, notice: 'Your data was successfully created.' }
-        format.json { render :show, status: :created, location: @kid }
+        format.json { render :index, status: :created, location: @kid }
       else
         format.html { render :new }
         format.json { render json: @kid.errors, status: :unprocessable_entity }

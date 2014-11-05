@@ -1,44 +1,38 @@
-<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
-<link href="http://fonts.googleapis.com/css?family=Istok+Web:700" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+<container id="kidscontainer">
+  <div id="item1">
+    <h1 id="graph">Compare the answers of all kids </h1>
+    <svg id="mainkids"></svg>
+  </div>
 
-<h1>All kids answered: </h1>
+  <div id="item2">
+    <h1 id="table">See it in a table </h1>
+    <table id="kids">
+      <thead>
+        <tr>
+          <th>Hours</th>
+          <th>Diameter</th>
+          <th>Pieces</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-
-<svg id="mainkids"></svg>
-
-
-<h1>Listing kids</h1>
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Hours</th>
-      <th>Diameter</th>
-      <th>Pieces</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @kids.each do |kid| %>
-      <tr>
-        <td><%= kid.hours %></td>
-        <td><%= kid.diameter %></td>
-        <td><%= kid.pieces %></td>
-        <td><%= link_to 'Show', kid %></td>
-        <td><%= link_to 'Edit', edit_kid_path(kid) %></td>
-        <td><%= link_to 'Destroy', kid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+      <tbody>
+        <% @kids.each do |kid| %>
+          <tr>
+            <td><%= kid.hours %></td>
+            <td><%= kid.diameter %></td>
+            <td><%= kid.pieces %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to 'Save my own data', new_kid_path, class: "linktonew" %>
+</container>
 <br>
 
-<%= link_to 'New Kid', new_kid_path %>
 
-<%= link_to 'Go to the Weather', root_path %>
+
+
 
 

@@ -2,8 +2,50 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-span#logo{
-	font: 400 95px/1.6 'Pacifico', Georgia, serif;
-	font-size: 1.5em;
-	
+// span.logo{
+// 	font: 400 95px/1.6 'Pacifico', serif !important;
+// 	font-size: 1.5em !important;	
+// }
+
+svg#mainkids{
+	background-image: linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px);
+  background-size: 96px 96px, 96px 96px, 12px 12px, 12px 12px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+h1#table{
+	// margin-top: 20px; 
+}
+
+h1#graph{
+	// margin-top: 50px; 
+}
+
+container#kidscontainer{
+	display: flex;
+	margin-top: 50px;
+	justify-content: center;
+}
+
+div#item2{
+	margin-left: 50px;
+}
+
+td{
+
+	height: 30px;
+	width: 20px;
+}
+
+a.linktonew {
+	align: center;
+	border-radius: 5px; 
+	padding-left: 10px;
+	padding-top: 20px;
+	color: white;
+	align-self: flex-end;
+	width: 150px;
+	height: 35px;
+	background-color : #a1a1a1; 
+  font-family: 'IstokWeb', sans-serif; 
 }

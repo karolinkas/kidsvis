@@ -2,19 +2,20 @@
 <html>
 <head>
   <title>Kidsvis</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 
-<% if current_page?(controller: 'weather', action: 'index')|| current_page?(controller: 'kids', action: 'new')%>
+<% if current_page?(controller: 'weather', action: 'index')|| current_page?(controller: 'kids', action: 'new') || current_page?(controller: 'kids', action: 'index')%>
 <nav>
 	<ul>
-	<li><span id="logo"> Wetter </span> </li>
-	<li><%= link_to "My data", new_kid_path %></li>
+	<li><span class="logo"> Wetter </span> </li>
 	<li><%= link_to "Weather", weather_path %></li>
+	<li><%= link_to "My data", new_kid_path %></li>
+	<li><%= link_to "About", weather_about_path %></li>
 	</ul>
 </nav>
 <% end %>

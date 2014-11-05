@@ -1,6 +1,6 @@
 var ready;
 
-var width = 900;
+var width = 700;
 var height = 300;
 ready = function(){
 

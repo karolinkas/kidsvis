@@ -6,7 +6,9 @@ class WeatherController < ApplicationController
 
 	end
 
+	def about
 
+	end
 
 	def wind
 		
