@@ -8,7 +8,7 @@ g.x.axis{
 .axis path,
 .axis line {
   fill: none;
-  // stroke: #000;
+  stroke: white;
   shape-rendering: crispEdges;
 }
 
@@ -71,9 +71,14 @@ svg.grid {
 h1{
 	font-size: 1.5em;
 	line-height:12px;
-	margin-top: 25px;
-	margin-bottom: 20px;
+	margin-top: 6px;
+	margin-bottom: 10px;
 	margin-left: 260px;
+
+}
+
+h1.time{
+
 
 }
 
@@ -91,9 +96,9 @@ h1{
 		
 }
 
-img.logo{
-	position: relative;
-	top: 0.5px;
+span#logo{
+	font: 400 95px/1.6 'Pacifico', Georgia, serif;
+	font-size: 1.5em;
 	
 }
 
@@ -174,11 +179,13 @@ a{
 }
 
 nav {
-	
+	background-color: #1e90ff;
+	background-image: url(http://www.transparenttextures.com/patterns/tiny-grid.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 	left: 0px;
 	top: 0px;
 	background-color: #1e90ff;
-	height: 50px;
+	height: 60px;
 	margin: 0px auto;
 	width: 100%;
 	position: fixed;

@@ -1,5 +1,6 @@
 <link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 <link href="http://fonts.googleapis.com/css?family=Istok+Web:700" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
 
 <div id="superform">
 <%= form_tag("/weather", method: :get) do  %>
@@ -12,13 +13,13 @@
 <container id="weather" data-city="<%= params[:city] %>">
 
 	<% if @timenow.hour>17&&@timenow.hour<22 %>
-	<h1>Good Evening</h1>
+	<h1 class="time">Good Evening</h1>
 	<% elsif @timenow.hour>22&&@timenow.hour<6 %>
-	<h1>Good Night</h1>
+	<h1 class="time">Good Night</h1>
 	<% elsif @timenow.hour>6&&@timenow.hour<22 %>
-	<h1>Good Morning</h1>
+	<h1 class="time">Good Morning</h1 class="time">
 	<% end %>
-	<h1>Let´s check out the weather!</h1>
+	<h1 class="time">Let´s check out the weather!</h1>
 
 
 	<svg 

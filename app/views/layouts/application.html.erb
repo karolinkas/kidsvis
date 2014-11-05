@@ -8,14 +8,16 @@
 </head>
 <body>
 
+
+<% if current_page?(controller: 'weather', action: 'index')|| current_page?(controller: 'kids', action: 'new')%>
 <nav>
 	<ul>
-	<li><%= image_tag("logo.png", class: "logo", size: "22x22") %></li>
+	<li><span id="logo"> Wetter </span> </li>
 	<li><%= link_to "My data", new_kid_path %></li>
 	<li><%= link_to "Weather", weather_path %></li>
 	</ul>
 </nav>
-
+<% end %>
 
 
 <%= yield %>

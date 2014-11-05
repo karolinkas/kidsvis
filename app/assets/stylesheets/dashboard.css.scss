@@ -13,6 +13,7 @@ container#dashboard{
 
 	display: flex;
 	justify-content: center;
+	align-content: center;
 }
 
 // img.icon :hover{
@@ -20,15 +21,18 @@ container#dashboard{
 // 	background:$niceblue;
 // }
  
-a img.icon {
+a img.sun {
 
 	text-decoration: none;
 }
 
-
-
-img.icon {
-	
+img.sun {
+	margin-top: 200px;
+	width: 300px;
 	background:none;
-
+	opacity: 0.8;
 }
+
+img.sun:hover {
+	opacity: 1;
+	}
