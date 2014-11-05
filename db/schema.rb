@@ -13,16 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20141103100505) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "kids", force: true do |t|
     t.integer  "hours"
     t.integer  "diameter"
     t.integer  "pieces"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "weatherdata", force: true do |t|
-    t.text     "blob"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
