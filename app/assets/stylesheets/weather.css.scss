@@ -3,22 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // @font-face {
-//       font-family: "Lora";
-//       src: url(/assets/fonts/Lora-Bold.ttf) format("truetype");
+//       font-family: "Lora-Bold";
+//       src:url(asset-path(fonts/Lora-Bold.ttf));
 //   }
 
 // @font-face {
 //       font-family: "Pacifio";
-//       src: url(/assets/fonts/Pacifico.ttf) format("truetype");
+//       src:url(asset-path('fonts/Pacifico.ttf));
 //   }
 
 //  @font-face {
-//         font-family: "IstokWeb";
-//         src: url(/assets/fonts/IstokWeb-Bold.ttf) format("truetype");
+//         font-family: "IstokWeb-Bold";
+//         src:url(asset-path(fonts/IstokWeb-Bold.ttf));
 //     }
 
-
-	
 
 g.x.axis{
 	fill: #666;
@@ -51,9 +49,7 @@ body{
 
 
 .labels{
-	font-size: 2em;	
-	
-
+	font-size: 2.5em;		
 }
 
 container#weather{

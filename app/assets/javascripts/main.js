@@ -40,6 +40,36 @@ ready = function() {
                     .attr("r", function(d, i) {
                         return xscale(d.speed / 7) + 40
                     });
+
+
+                windgroup.selectAll("text").data(dataw)
+                    .enter()
+                    .append("text")
+                    .attr("width", 50)
+                    .attr("height", 20)
+                    .attr("fill", "white")
+                    .attr("stroke", "grey")
+                    .attr("stroke-width", ".6px")
+                    .style("opacity", 0)
+                    .attr("y", 45)
+                    .on('mouseover', function(d) {
+                        d3.select(this).style({
+                            opacity: '1.0'
+                        })
+                    })
+                    .on('mouseout', function(d) {
+                        d3.select(this).style({
+                            opacity: '0.0'
+                        })
+                    })
+                    .attr("x", function(d, i) {
+                        return 90 * i
+                    })
+                    .text(function(d, i) {
+                        return d3.round(d.speed) + " mps"
+                    })
+                    .attr("class", "labels");
+
             })
 
 
@@ -53,7 +83,7 @@ ready = function() {
                     temperaturegroup.selectAll("circle").data(datat)
                         .enter()
                         .append("circle")
-                        .attr("cy", 120)
+                        .attr("cy", 170)
                         .attr("r", 0)
                         .attr("cx", function(d, i) {
                             return 90 * i
@@ -68,6 +98,36 @@ ready = function() {
                         .attr("r", function(d, i) {
                             return xscale(d.temperature / 200)
                         });
+
+                    temperaturegroup.selectAll("text").data(datat)
+                    .enter()
+                    .append("text")
+                    .attr("width", 50)
+                    .attr("height", 20)
+                    .attr("fill", "white")
+                    .attr("stroke", "grey")
+                    .attr("stroke-width", ".6px")
+                    .style("opacity", 0)
+                    .attr("y", 170)
+                    .on('mouseover', function(d) {
+                        d3.select(this).style({
+                            opacity: '1.0'
+                        })
+                    })
+                    .on('mouseout', function(d) {
+                        d3.select(this).style({
+                            opacity: '0.0'
+                        })
+                    })
+                    .attr("x", function(d, i) {
+                        return 90 * i 
+                    })
+                    .text(function(d, i) {
+                        return d3.round((d.temperature - 273.15)) + "°C";
+                    })
+                    .on()
+                    .attr("class", "labels");
+
                 })
 
                 d3.json("/weather/humidity.json?city=" + weather.data("city"), function(error, json) {
@@ -81,7 +141,7 @@ ready = function() {
                         .enter()
                         .append("circle")
                         .attr("r", 0)
-                        .attr("cy", 200)
+                        .attr("cy", 290)
                         .attr("cx", function(d, i) {
                             return 90 * i
                         })
@@ -97,6 +157,34 @@ ready = function() {
                         });
 
                 })
+
+                    humiditygroup.selectAll("text").data(datah)
+                        .enter()
+                        .append("text")
+                        .attr("width", 50)
+                        .attr("height", 20)
+                        .attr("fill", "white")
+                        .attr("stroke", "grey")
+                        .attr("stroke-width", ".6px")
+                        .style("opacity", 0)
+                        .attr("y", 290)
+                        .on('mouseover', function(d) {
+                            d3.select(this).style({
+                                opacity: '1.0'
+                            })
+                        })
+                        .on('mouseout', function(d) {
+                            d3.select(this).style({
+                                opacity: '0.0'
+                            })
+                        })
+                        .attr("x", function(d, i) {
+                            return 90 * i 
+                        })
+                        .text(function(d, i) {
+                            return d.hum + "%"
+                        })
+                        .attr("class", "labels");
 
 
             }
@@ -225,13 +313,19 @@ ready = function() {
             }
 
             function dropHandler(d) {
-                console.log('dropped');
+                
+                // d3.select(this).selectAll("circle").sort(function (a, b) { 
+                // if (a.id != d.id) return -1;               
+                // else return 1;})
+                // debugger;
             }
 
             function dragmove(d) {
 
                 d.y += d3.event.dy;
                 d3.select(this).attr("transform", "translate(" + d.x + "," + d.y + ")");
+                
+                
             }
 
 
@@ -261,13 +355,14 @@ ready = function() {
                         return xscale(d.speed / 7) + 40
                     });
 
-
-                windgroup.selectAll("text").data(dataw)
+                    windgroup.selectAll("text").data(dataw)
                     .enter()
                     .append("text")
                     .attr("width", 50)
                     .attr("height", 20)
                     .attr("fill", "white")
+                    .attr("stroke", "grey")
+                    .attr("stroke-width", ".6px")
                     .style("opacity", 0)
                     .attr("y", 45)
                     .on('mouseover', function(d) {
@@ -288,6 +383,9 @@ ready = function() {
                     })
                     .attr("class", "labels");
 
+
+                
+
             });
 
             d3.json("/weather/temperature.json?city=" + weather.data("city"), function(error, json) {
@@ -298,12 +396,10 @@ ready = function() {
                 datat = json.slice(beginning, end);
 
 
-
-
                 temperaturegroup.selectAll("circle").data(datat)
                     .enter()
                     .append("circle")
-                    .attr("cy", 180)
+                    .attr("cy", 170)
                     .attr("r", 0)
                     .attr("cx", function(d, i) {
                         return 90 * i 
@@ -326,8 +422,10 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .attr("fill", "white")
+                    .attr("stroke", "grey")
+                    .attr("stroke-width", ".6px")
                     .style("opacity", 0)
-                    .attr("y", 180)
+                    .attr("y", 170)
                     .on('mouseover', function(d) {
                         d3.select(this).style({
                             opacity: '1.0'
@@ -347,6 +445,9 @@ ready = function() {
                     .on()
                     .attr("class", "labels");
 
+
+                
+
             });
 
             d3.json("/weather/humidity.json?city=" + weather.data("city"), function(error, json) {
@@ -356,9 +457,7 @@ ready = function() {
                 end = beginning + 9
                 datah = json.slice(beginning, end);
 
-
-
-
+               
                 humiditygroup.selectAll("circle").data(datah)
                     .enter()
                     .append("circle")
@@ -380,32 +479,34 @@ ready = function() {
                     });
 
 
-
-                humiditygroup.selectAll("text").data(datah)
-                    .enter()
-                    .append("text")
-                    .attr("width", 50)
-                    .attr("height", 20)
-                    .attr("fill", "white")
-                    .style("opacity", 0)
-                    .attr("y", 290)
-                    .on('mouseover', function(d) {
-                        d3.select(this).style({
-                            opacity: '1.0'
+                 humiditygroup.selectAll("text").data(datah)
+                        .enter()
+                        .append("text")
+                        .attr("width", 50)
+                        .attr("height", 20)
+                        .attr("fill", "white")
+                        .attr("stroke", "grey")
+                        .attr("stroke-width", ".6px")
+                        .style("opacity", 0)
+                        .attr("y", 290)
+                        .on('mouseover', function(d) {
+                            d3.select(this).style({
+                                opacity: '1.0'
+                            })
                         })
-                    })
-                    .on('mouseout', function(d) {
-                        d3.select(this).style({
-                            opacity: '0.0'
+                        .on('mouseout', function(d) {
+                            d3.select(this).style({
+                                opacity: '0.0'
+                            })
                         })
-                    })
-                    .attr("x", function(d, i) {
-                        return 90 * i 
-                    })
-                    .text(function(d, i) {
-                        return d.hum + "%"
-                    })
-                    .attr("class", "labels");
+                        .attr("x", function(d, i) {
+                            return 90 * i 
+                        })
+                        .text(function(d, i) {
+                            return d.hum + "%"
+                        })
+                        .attr("class", "labels");
+       
 
             });
 

@@ -14,34 +14,18 @@ ready = function(){
 		var yscale = d3.scale.linear().domain([d3.min(data), d3.max(data)]).range([0,height]);
 				
 
-		// .style("opacity", 0)
-  //                   .attr("y", 45)
-  //                   .on('mouseover', function(d) {
-  //                       d3.select(this).style({
-  //                           opacity: '1.0'
-  //                       })
-  //                   })
-  //                   .on('mouseout', function(d) {
-  //                       d3.select(this).style({
-  //                           opacity: '0.0'
-  //                       })
-  //                   })
-
-
-    svg.selectAll("text").data(data)
+		svg.selectAll("g.node").data(data)
 													.enter()
-													.append("text") 
+													.append("g") 
 													.attr("transform", function(d, i) {	
-													var factor = d.diameter/20,
-													translate = "translate("+90*i+","+90+")",
-													scale = "scale(" + factor + ")";								 
-													return translate;
+													  var factor = d.hours/20,
+													  translate = "translate("+90*i+","+170+")",
+													  scale = "scale(" + factor + ")";								 
+													  return translate + " " + scale;
 													})
-													.attr("fill","white")
-													.text(function(d,i){
-														return d.diameter
-													});
-                
+													.append("use") 
+													.attr("xlink:href", "#bubble");
+
 
 
 		svg.selectAll("g.node").data(data)
@@ -49,13 +33,41 @@ ready = function(){
 													.append("g") 
 													.attr("transform", function(d, i) {	
 													  var factor = d.diameter/20,
-													  translate = "translate("+90*i+","+90+")",
+													  translate = "translate("+90*i+","+40+")",
 													  scale = "scale(" + factor + ")";								 
 													  return translate + " " + scale;
 													})
 													.append("use") 
 													.attr("xlink:href", "#bubble");
 
+    svg.selectAll("text").data(data)
+													.enter()
+													.append("text") 
+													.attr("transform", function(d, i) {	
+													var factor = d.diameter/20,
+													translate = "translate("+(90*i)+","+40+")",
+													scale = "scale(" + factor + ")";								 
+													return translate;
+													})
+													.attr("fill","white")
+													.attr("stroke", "grey")
+      										.attr("stroke-width", ".6px")
+													.style("opacity", 0)
+
+													.text(function(d,i){
+														return d.diameter
+													})
+													.on('mouseover', function(d) {
+                        	d3.select(this).style({
+                            opacity: '1.0' 
+                          		})
+                    			})
+					                .on('mouseout', function(d) {
+					                    d3.select(this).style({
+					                        opacity: '0.0'
+					                    })
+					                })
+													.attr("class", "labels");
 	})
 											
 

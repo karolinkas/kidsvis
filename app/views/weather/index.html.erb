@@ -12,13 +12,7 @@
 
 <container id="weather" data-city="<%= params[:city].present? ? params[:city] : "Barcelona" %>">
 
-	<% if @timenow.hour>17&&@timenow.hour<22 %>
-	<h1 class="time">Good Evening</h1>
-	<% elsif @timenow.hour>22&&@timenow.hour<6 %>
-	<h1 class="time">Good Night</h1>
-	<% elsif @timenow.hour>6&&@timenow.hour<22 %>
-	<h1 class="time">Good Morning</h1 class="time">
-	<% end %>
+
 	<h1 class="time">Let´s check out the weather!</h1>
 
 
