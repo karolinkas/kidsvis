@@ -13,7 +13,9 @@ container#dashboard{
 
 	display: flex;
 	justify-content: center;
-	align-content: center;
+	align-items: center;
+	flex-direction: row;
+	margin-top: 10px;
 }
 
 // img.icon :hover{
@@ -30,9 +32,19 @@ img.sun {
 	margin-top: 200px;
 	width: 300px;
 	background:none;
-	opacity: 0.8;
+	opacity: 0.2;
+	-webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
 img.sun:hover {
 	opacity: 1;
 	}
+
+div#decision{
+	font: 400 95px/1.6 'Pacifico', Georgia, serif;
+	font-size: 1.5em;
+}
