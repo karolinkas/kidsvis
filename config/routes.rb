@@ -11,7 +11,7 @@ Rails.application.routes.draw do
  
 
   get 'weather', to: 'weather#index'
-  get "weather/about", to: "weather#about"
+  get "dashboard/about", to: "dashboard#about"
   get "weather/wind", to: "weather#wind"
   get "weather/temperature", to: "weather#temperature"
   get "weather/humidity", to: "weather#humidity"

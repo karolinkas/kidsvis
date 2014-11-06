@@ -33,11 +33,13 @@ g.x.axis{
 }
 
 body{
+
 	font-family: 'Lora', serif;
 	padding: 20px;
 	color: white;
 	background-image: asset-url("bedge_grunge.png");
 	line-height:20px;
+	font-weight:bold;
 
 }
 
@@ -76,6 +78,7 @@ svg.grid {
   left: 0;
   display: block;
   margin: auto;
+
   //white shadow
  //  -moz-box-shadow: 0 0 15px #fff;
 	// -webkit-box-shadow: 0 0 15px #fff;
@@ -95,17 +98,28 @@ h1.time{
 }
 
 .icons{
-		position: absolute;
-		top: 60px;
-		left:145px;
 		display: flex;
-		flex-direction: column;	
+		flex-direction: column;
+		margin-top: -420px;
+		margin-left: 30px;
+// 		position: relative;
+// 		top: 20px;
+// 		left: 20px;	
 }
 
-.icon{
+.icon1{
 		margin-top: 12px; 
-		margin-bottom: 12px;
-		
+		margin-bottom: 12px;		
+}
+
+.icon2{
+		margin-top: 12px; 
+		margin-bottom: 12px;		
+}
+
+.icon3{
+		margin-top: 12px; 
+		margin-bottom: 12px;		
 }
 
 span.logo{
@@ -157,6 +171,7 @@ form label{
 	top: 2px;
 	color: deeppink;
 	font-size: 1.6em;
+	font-family: 'Lora' !important;
 
 }
 
@@ -191,7 +206,7 @@ a{
 
 nav {
 
-	background-color: #1e90ff;
+
 	background-image: url(http://www.transparenttextures.com/patterns/tiny-grid.png);
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 	left: 0px;
@@ -215,7 +230,7 @@ nav a{
 
 }
 
-button.timetravel{
+button.timetravel1{
 	background-color : #a1a1a1;
   font-family: 'Istok Web', sans-serif;
   border: 0px;
@@ -224,10 +239,23 @@ button.timetravel{
   color: white;
   font-size: 1.0em;
   font-weight: bold;
-  width: 60px;
-  margin-top:15px;
+  // width: 60px;
+  margin-top:150px;
   margin-left: 260px;
   border-radius: 5px;
+}
 
-
+button.timetravel2{
+	background-color : #a1a1a1;
+  font-family: 'Istok Web', sans-serif;
+  border: 0px;
+  outline:0px;
+  padding: 7px;
+  color: white;
+  font-size: 1.0em;
+  font-weight: bold;
+  // width: 60px;
+  margin-top:100px;
+  margin-left: 20px;
+  border-radius: 5px;
 }

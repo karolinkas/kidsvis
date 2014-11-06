@@ -12,7 +12,7 @@ svg#mainkids{
   background-size: 96px 96px, 96px 96px, 12px 12px, 12px 12px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
   box-shadow: 0 1px 0 white;
-
+ 
 	// background-color: #ffffff;
 	// background-image: url(http://www.transparenttextures.com/patterns/grid-me.png);
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
@@ -30,40 +30,68 @@ container#kidscontainer{
 	display: flex;
 	margin-top: 50px;
 	justify-content: center;
+
+
 }
 
 div#item2{
 	margin-left: 50px;
+	width: 250px;
 }
 
 td{
 
 	height: 30px;
 	width: 20px;
+	box-shadow: 0 1px 0 white;
+
 }
 
 a.linktonew {
-	align: center;
+	
 	border-radius: 5px; 
 	padding-left: 10px;
 	padding-top: 20px;
 	color: white;
 	align-self: flex-end;
-	width: 150px;
+	width: 200px;
 	height: 35px;
 	background-color : #a1a1a1; 
   font-family: 'Istok Web', sans-serif; 
 }
 
+div#field1 label{
+	line-height: 1.2em;
+}
+
+div#field2 label{
+	line-height: 1.2em;
+}
+
+div#field3 label{
+	line-height: 1.2em;
+}
 
 div#field1{
-	margin-top: 50px;
+	margin-top: 100px;
+	margin-bottom: 30px;
+	width: 500px;
 }
 
 div#field2{
-	margin-top: 20px;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	width: 500px;
 }
 
 div#field3{
-	margin-top: 20px;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	width: 500px;
+}
+
+div.actions{
+	margin-top:30px;
+	margin-bottom: 30px;
+	width: 500px;
 }

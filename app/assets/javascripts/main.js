@@ -510,7 +510,17 @@ ready = function() {
 
             });
 
+      $(".icon1").click(function(){
+              $("#windsvg").toggle();
+            });
 
+      $(".icon2").click(function(){
+              $("#temperaturesvg").toggle();
+            });
+
+      $(".icon3").click(function(){
+              $("#humiditysvg").toggle();
+            });
 
 } // Pageload
 
@@ -522,9 +532,7 @@ ready = function() {
         // and
         // show() and hide function
 
-        //     $("button").click(function(){
-        //   $("element").toggle();
-        // });
+          
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
