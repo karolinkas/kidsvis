@@ -133,9 +133,10 @@ h1.time{
 		margin-bottom: 12px;		
 }
 
-span.logo{
+span.logo a{
 	font: 400 95px/1.6 'Pacifico', serif;
 	font-size: 1.5em;	
+	padding-bottom: -5px;
 }
 
 ul{
@@ -174,7 +175,7 @@ text.labels{
 form{
 	// position: fixed;
 	// top: 80px;
-	margin-top: 40px;
+	margin-top: 60px;
 
 }
 form label{
@@ -224,7 +225,8 @@ nav {
 	top: 0px;
 	background-color: #1e90ff;
 	height: 60px;
-	margin: 0px auto;
+	padding: 5px;
+	// margin: 0px auto;
 	width: 100%;
 	position: fixed;
 	opacity: 0.5;

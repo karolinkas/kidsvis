@@ -15,7 +15,7 @@
 <% if current_page?(controller: 'weather', action: 'index')|| current_page?(controller: 'kids', action: 'new') || current_page?(controller: 'kids', action: 'index')%>
 <nav>
 	<ul>
-	<li><span class="logo"> Wetter </span> </li>
+	<li><span class="logo"> <a> Wetter </a></span> </li>
 	<li><%= link_to "Weather", weather_path %></li>
 	<li><%= link_to "My data", kids_path %></li>
 	<li><%= link_to "About", dashboard_about_path %></li>

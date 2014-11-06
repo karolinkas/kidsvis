@@ -16,9 +16,6 @@ ready = function() {
                     slide -= 1
                 }
 
-            d3.json("/weather/date.json?city=" + weather.data("city"), function(error, json) {
-                console.log(json);
-            })
 
              d3.json("/weather/wind.json?city=" + weather.data("city"), function(error, json) {
                 beginning = slide * 10 + 1
@@ -241,7 +238,7 @@ ready = function() {
 
             var xAxis = d3.svg.axis()
                 .scale(xscale)
-                .ticks(22)
+                .ticks(5)
                 .tickSize(6, 0)
                 .orient("top");
 
@@ -525,6 +522,20 @@ ready = function() {
 
       $(".icon3").click(function(){
               $("#humiditysvg").toggle();
+            });
+
+      
+
+       $(".icon1").mouseenter(function(){
+              $(".icon1").attr('title', 'Wind');
+            });
+
+       $(".icon2").mouseenter(function(){
+              $(".icon2").attr('title', 'Temperature');
+            });
+
+       $(".icon3").mouseenter(function(){
+              $(".icon3").attr('title', 'Humidity');
             });
 
 } // Pageload
