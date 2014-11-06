@@ -547,6 +547,16 @@ ready = function() {
 
             });
 
+        $("#back").click(function(){
+             
+              if ( $("#time").html() === "Tomorrow" ){
+                   $("#time").html("Today");
+              } else if ( $("#time").html() === "The day after tomorrow"){
+                   $("#time").html("Tomorrow");
+              }
+
+            });
+
 
 
 
