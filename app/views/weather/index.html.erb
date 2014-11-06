@@ -1,34 +1,31 @@
-<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
-<link href="http://fonts.googleapis.com/css?family=Istok+Web:700" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+
 
 <div id="superform">
-<%= form_tag("/weather", method: :get) do  %>
- <%= label_tag 'City' %>
- <%= text_field_tag :city  %>
- <%= submit_tag "Go" %>
-<% end %>
+	<%= form_tag("/weather", method: :get) do  %>
+ 		<%= label_tag 'City' %>
+ 		<%= text_field_tag :city  %>
+ 		<%= submit_tag "Go" %>
+	<% end %>
 </div>
 
-	<div id="h1">
-		<h1 class="time">Let´s check out the weather!</h1>
-	</div>
-	
-	<g id="time">
-	</g>
+<div id="h1">
+	<h1 class="time">Let´s check out the weather!</h1>
+</div>
+
+<div id="time">Today</div>
 
 
 <container id="weather" data-city="<%= params[:city].present? ? params[:city] : "Barcelona" %>">
 
 	<div id="row2">
-		<div class="icons"><%= image_tag("icon-wind.png", size: "100", class: "icon1") %>
-											 <%= image_tag("icon-temp.png", size: "100", class: "icon2") %>
-											 <%= image_tag("icon-clouds.png", size: "100", class: "icon3") %>
+		<div class="icons">
+			<%= image_tag("icon-wind.png", size: "100", class: "icon1", title: "Wind") %>
+			<%= image_tag("icon-temp.png", size: "100", class: "icon2", title: "Temperature")%>
+			<%= image_tag("icon-clouds.png", size: "100", class: "icon3", title: "Clouds") %>
 		</div>
 
 		<div id="svg">
-			<svg 
-		     class="grid">
+			<svg class="grid">
 			</svg>
 		</div>
 

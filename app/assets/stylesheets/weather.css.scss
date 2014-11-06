@@ -17,6 +17,20 @@
 //         src:url(asset-path(fonts/IstokWeb-Bold.ttf));
 //     }
 
+div#time{
+	background-color: white;
+	width: 200px;
+	height: 40px;
+	position: relative;
+	left: 890px;
+	color: grey;
+	padding-left:25px;
+	padding-right:25px;
+	padding-top:20px;
+	padding-bottom:25px;
+	font-size:1.6em;
+	line-height: 1em;
+}
 
 g.x.axis{
 	fill: #666;

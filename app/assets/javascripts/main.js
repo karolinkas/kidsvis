@@ -4,6 +4,10 @@ var ready;
 ready = function() {
 
 
+
+            
+               
+
             slide = 0
             var weather = $("#weather");
 
@@ -21,7 +25,7 @@ ready = function() {
                 beginning = slide * 10 + 1
                 end = beginning + 9
                 dataw = json.slice(beginning, end);
-                console.log(dataw);
+               
                 windgroup.selectAll("circle").remove();
                 windgroup.selectAll("circle").data(dataw)
                     .enter()
@@ -514,6 +518,10 @@ ready = function() {
 
       $(".icon1").click(function(){
               $("#windsvg").toggle();
+              if ( $("#time").html("today") ){
+
+              }
+
             });
 
       $(".icon2").click(function(){
@@ -524,19 +532,23 @@ ready = function() {
               $("#humiditysvg").toggle();
             });
 
-      
+       
 
-       $(".icon1").mouseenter(function(){
-              $(".icon1").attr('title', 'Wind');
+ 
+
+       
+       $("#ahead").click(function(){
+             
+              if ( $("#time").html() === "Today" ){
+                   $("#time").html("Tomorrow");
+              } else if ( $("#time").html() === "Tomorrow"){
+                   $("#time").html("The day after tomorrow");
+              }
+
             });
 
-       $(".icon2").mouseenter(function(){
-              $(".icon2").attr('title', 'Temperature');
-            });
 
-       $(".icon3").mouseenter(function(){
-              $(".icon3").attr('title', 'Humidity');
-            });
+
 
 } // Pageload
 
