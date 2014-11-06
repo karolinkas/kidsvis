@@ -10,26 +10,32 @@
 <% end %>
 </div>
 
+	<div id="h1">
+		<h1 class="time">Let´s check out the weather!</h1>
+	</div>
+
+
 <container id="weather" data-city="<%= params[:city].present? ? params[:city] : "Barcelona" %>">
 
+	<div id="row2">
+		<div class="icons"><%= image_tag("icon-wind.png", size: "100", class: "icon1") %>
+											 <%= image_tag("icon-temp.png", size: "100", class: "icon2") %>
+											 <%= image_tag("icon-clouds.png", size: "100", class: "icon3") %>
+		</div>
 
-	<h1 class="time">Let´s check out the weather!</h1>
+		<div id="svg">
+			<svg 
+		     class="grid">
+			</svg>
+		</div>
 
-
-	<svg 
-     class="grid">
-	</svg>
-
-	<div class="icons"><%= image_tag("icon-wind.png", size: "100", class: "icon1") %>
-										 <%= image_tag("icon-temp.png", size: "100", class: "icon2") %>
-										 <%= image_tag("icon-clouds.png", size: "100", class: "icon3") %>
 
 	</div>
 
 </container>
 
-<button class="timetravel1" id="back" onclick="travelBack()" > Back </button>
-<button class="timetravel2" id="ahead" onclick="travelAhead()" > Ahead </button>
+	<button class="timetravel1" id="back" onclick="travelBack()" > Back </button>
+	<button class="timetravel2" id="ahead" onclick="travelAhead()" > Ahead </button>
 
 
 

@@ -16,6 +16,10 @@ ready = function() {
                     slide -= 1
                 }
 
+            d3.json("/weather/date.json?city=" + weather.data("city"), function(error, json) {
+                console.log(json);
+            })
+
              d3.json("/weather/wind.json?city=" + weather.data("city"), function(error, json) {
                 beginning = slide * 10 + 1
                 end = beginning + 9
@@ -135,6 +139,7 @@ ready = function() {
                     beginning = slide * 10 + 1
                     end = beginning + 9
                     datah = json.slice(beginning, end);
+                    
 
                     humiditygroup.selectAll("circle").remove();
                     humiditygroup.selectAll("circle").data(datah)

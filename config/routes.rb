@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "weather/wind", to: "weather#wind"
   get "weather/temperature", to: "weather#temperature"
   get "weather/humidity", to: "weather#humidity"
+  get "weather/date", to: "weather#date"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
