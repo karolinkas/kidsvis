@@ -4,8 +4,10 @@ var width = 700;
 var height = 400;
 ready = function(){
 
-	d3.json("/kids.json", function(error, data) {
+	d3.json("/kids.json", function(error, datafull) {
 	  
+	  data = datafull.slice(1,8);
+
 	  var svg = d3.select("body").select("#mainkids")
 	                             .attr("height", height)
 			                				 .attr("width", width)
