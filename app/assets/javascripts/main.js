@@ -45,7 +45,7 @@ ready = function() {
 
                     });
 
-
+                windgroup.selectAll("text").remove();
                 windgroup.selectAll("text").data(dataw)
                     .enter()
                     .append("text")
@@ -103,6 +103,7 @@ ready = function() {
                             return xscale(d.temperature / 200)
                         });
 
+                    temperaturegroup.selectAll("text").remove();
                     temperaturegroup.selectAll("text").data(datat)
                     .enter()
                     .append("text")
@@ -158,11 +159,11 @@ ready = function() {
                         .duration(1000)
                         .delay(100)
                         .attr("r", function(d, i) {
-                            return xscale(d.hum / 55)
+                            return xscale(d.hum / 30)
                         });
 
                 })
-
+                    humiditygroup.selectAll("text").remove();
                     humiditygroup.selectAll("text").data(datah)
                         .enter()
                         .append("text")
@@ -489,7 +490,7 @@ ready = function() {
                     .delay(100)
                     .attr("r", function(d, i) {
 
-                        return xscale(d.hum / 40)
+                        return xscale(d.hum / 30)
                     });
 
 
