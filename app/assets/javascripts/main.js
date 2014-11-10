@@ -4,10 +4,6 @@ var ready;
 ready = function() {
 
 
-
-            
-               
-
             slide = 0
             var weather = $("#weather");
 
@@ -25,7 +21,9 @@ ready = function() {
                 beginning = slide * 10 + 1
                 end = beginning + 9
                 dataw = json.slice(beginning, end);
-               
+                
+                // console.log(dataw);
+
                 windgroup.selectAll("circle").remove();
                 windgroup.selectAll("circle").data(dataw)
                     .enter()
@@ -43,7 +41,8 @@ ready = function() {
                     .duration(1000)
                     .delay(100)
                     .attr("r", function(d, i) {
-                        return xscale(d.speed / 7) + 40
+                        return xscale(d.speed / 50) + 20
+
                     });
 
 
@@ -56,7 +55,7 @@ ready = function() {
                     .attr("stroke", "grey")
                     .attr("stroke-width", ".6px")
                     .style("opacity", 0)
-                    .attr("y", 45)
+                    .attr("y", 40)
                     .on('mouseover', function(d) {
                         d3.select(this).style({
                             opacity: '1.0'
@@ -225,8 +224,6 @@ ready = function() {
 
            
 
-
-
             var width = 960 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
@@ -235,14 +232,17 @@ ready = function() {
                 .attr("width", width)
                 .attr("height", height);
 
+            var axisscale = d3.scale.linear()
+                .domain([0, 24])
+                .range([50, width-85]);
 
             var xscale = d3.scale.linear()
-                .domain([1, 31])
+                .domain([0, 100])
                 .range([0, width]);
-
+            console.log(xscale);
             var xAxis = d3.svg.axis()
-                .scale(xscale)
-                .ticks(5)
+                .scale(axisscale)
+                .ticks(10)
                 .tickSize(6, 0)
                 .orient("top");
 
@@ -328,12 +328,19 @@ ready = function() {
             }
 
             function dragmove(d) {
-
+                // debugger;
+                // console.log(d3.select(this));
                 d.y += d3.event.dy;
                 d3.select(this).attr("transform", "translate(" + d.x + "," + d.y + ")");
                 
-                
-            }
+                if(d3.select(this)===windgroup){
+
+                    if (d.y > 213) d.y = 213;
+                    if (d.y < -6) d.y = -6;}
+                }
+
+        
+
 
 
 
@@ -347,7 +354,7 @@ ready = function() {
                     .enter()
                     .append("circle")
                     .attr("r", 0)
-                    .attr("cy", 45)
+                    .attr("cy", 50)
                     .attr("cx", function(d, i) {
                         return 90 * i 
                     })
@@ -359,7 +366,7 @@ ready = function() {
                     .duration(1000)
                     .delay(100)
                     .attr("r", function(d, i) {
-                        return xscale(d.speed / 7) + 40
+                        return xscale(d.speed / 50) + 20
                     });
 
                     windgroup.selectAll("text").data(dataw)
@@ -406,7 +413,7 @@ ready = function() {
                 temperaturegroup.selectAll("circle").data(datat)
                     .enter()
                     .append("circle")
-                    .attr("cy", 170)
+                    .attr("cy", 175)
                     .attr("r", 0)
                     .attr("cx", function(d, i) {
                         return 90 * i 
@@ -432,7 +439,7 @@ ready = function() {
                     .attr("stroke", "grey")
                     .attr("stroke-width", ".6px")
                     .style("opacity", 0)
-                    .attr("y", 170)
+                    .attr("y", 175)
                     .on('mouseover', function(d) {
                         d3.select(this).style({
                             opacity: '1.0'
@@ -469,7 +476,7 @@ ready = function() {
                     .enter()
                     .append("circle")
                     .attr("r", 0)
-                    .attr("cy", 290)
+                    .attr("cy", 295)
                     .attr("cx", function(d, i) {
                         return 90 * i
                     })
@@ -482,7 +489,7 @@ ready = function() {
                     .delay(100)
                     .attr("r", function(d, i) {
 
-                        return xscale(d.hum / 30)
+                        return xscale(d.hum / 40)
                     });
 
 
@@ -495,7 +502,7 @@ ready = function() {
                         .attr("stroke", "grey")
                         .attr("stroke-width", ".6px")
                         .style("opacity", 0)
-                        .attr("y", 290)
+                        .attr("y", 295)
                         .on('mouseover', function(d) {
                             d3.select(this).style({
                                 opacity: '1.0'
