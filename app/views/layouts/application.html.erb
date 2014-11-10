@@ -10,14 +10,14 @@
 	<link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
 </head>
 <body>
-
+	
 
 <% if current_page?(controller: 'weather', action: 'index')|| current_page?(controller: 'kids', action: 'new') || current_page?(controller: 'kids', action: 'index') || current_page?(controller: 'dashboard', action: 'about') %> 
 <nav>
 	<ul>
 	<li><span class="logo">  Wetter </span> </li>
 	<li><%= link_to "Weather", weather_path %></li>
-	<li><%= link_to "My data", kids_path %></li>
+	<li><%= link_to "My data", new_kid_path %></li>
 	<li><%= link_to "About", dashboard_about_path %></li>
 	</ul>
 </nav>

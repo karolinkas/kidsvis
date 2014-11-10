@@ -25,9 +25,9 @@ div#time{
 	left: 890px;
 	color: grey;
 	padding-left:25px;
-	padding-right:25px;
-	padding-top:20px;
-	padding-bottom:25px;
+	padding-right:20px;
+	padding-top:15px;
+	padding-bottom:20px;
 	font-size:1.2em;
 	line-height: 1em;
 }
@@ -54,6 +54,7 @@ body{
 	background-image: asset-url("bedge_grunge.png");
 	line-height:20px;
 	font-weight:bold;
+
 
 }
 
@@ -82,6 +83,7 @@ container#weather{
 	  justify-content: flex-start;
 
 
+
 }
 
 div#h1{
@@ -107,12 +109,7 @@ svg.grid {
   background-image: linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px);
   background-size: 96px 96px, 96px 96px, 12px 12px, 12px 12px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
-
-
-  //white shadow
- //  -moz-box-shadow: 0 0 15px #fff;
-	// -webkit-box-shadow: 0 0 15px #fff;
-	// box-shadow: 0px 0px 15px #fff;  
+  cursor:ns-resize;
 }
 
 }
@@ -125,10 +122,6 @@ div.icons{
 h1.time{
 	font-size: 1.5em;
 	line-height:12px;
-	// margin-top: 6px;
-	// margin-bottom: 10px;
-	// margin-left: 260px;
-
 }
 
 
@@ -240,7 +233,6 @@ nav {
 	background-color: #1e90ff;
 	height: 60px;
 	padding: 5px;
-	// margin: 0px auto;
 	width: 100%;
 	position: fixed;
 	opacity: 0.5;
@@ -266,7 +258,6 @@ button.timetravel1{
   color: white;
   font-size: 1.0em;
   font-weight: bold;
-  // width: 60px;
   margin-left: 260px;
   border-radius: 5px;
 }
@@ -280,8 +271,7 @@ button.timetravel2{
   color: white;
   font-size: 1.0em;
   font-weight: bold;
-  // width: 60px;
   margin-top:100px;
-  margin-left: 20px;
+  margin-left: 10px;
   border-radius: 5px;
 }

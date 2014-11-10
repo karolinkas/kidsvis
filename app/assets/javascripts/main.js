@@ -254,6 +254,7 @@ ready = function() {
                 .attr("transform", "rotate(-90)")
                 .attr("y", width)
                 .attr("dy", ".0em")
+                .attr("dx", ".5em")
                 .style("text-anchor", "start")
                 .attr("fill", "grey")
                 .text("hours");
@@ -543,6 +544,8 @@ ready = function() {
                    $("#time").html("Tomorrow");
               } else if ( $("#time").html() === "Tomorrow"){
                    $("#time").html("The day after tomorrow");
+              } else if ( $("#time").html() === "The day after tomorrow"){
+                    $("#time").html("No more forecast.")
               }
 
             });
@@ -552,7 +555,9 @@ ready = function() {
               if ( $("#time").html() === "Tomorrow" ){
                    $("#time").html("Today");
               } else if ( $("#time").html() === "The day after tomorrow"){
-                   $("#time").html("Tomorrow");
+                   $("#time").html("Tomorrow"); 
+              } else if ( $("#time").html() === "No more forecast." ){
+                    $("#time").html("The day after tomorrow");
               }
 
             });
