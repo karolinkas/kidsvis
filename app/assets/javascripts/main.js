@@ -242,11 +242,27 @@ ready = function() {
                 .domain([0, 100])
                 .range([0, width]);
            
+            var dates;
+
+            d3.json("/weather/date.json", function(error, datad) {
+            // debugger;
+            dates = datad;
+
+            var array = [];
+            for(var i in dates)
+                array.push( dates[i].date);
+
+            console.log(array);
+            });           
+
             var xAxis = d3.svg.axis()
                 .scale(axisscale)
-                .ticks(10)
+                .ticks(9)
+                // .tickValues(dates)
                 .tickSize(6, 0)
                 .orient("top");
+
+           
 
             var gx = svg.append("g")
                 .attr("class", "x axis")
@@ -527,10 +543,7 @@ ready = function() {
             });
 
 
-             d3.json("/weather/complete.json", function(error, json) {
-                // console.log(json.dt_text);
-                
-                });
+            
 
       $(".icon1").click(function(){
               $("#windsvg").toggle();

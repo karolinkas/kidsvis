@@ -10,20 +10,20 @@ class WeatherController < ApplicationController
 
 	end
 
-	def complete
+	def date
 		
-		complete = []
+		date = []
 
 		city = params[:city] || "Barcelona"
 		Weather.by_city(city).each do |it|
-			complete << {complete: it }
+			date << {date: it["dt_txt"] }
 		end
 
 		# ["dt_text"]
 
 		respond_to do |format|
 			format.json do
-				render json: complete
+				render json: date
 			end
 		end
 
