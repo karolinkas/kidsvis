@@ -17,12 +17,13 @@ ready = function() {
                 }
 
 
+
              d3.json("/weather/wind.json?city=" + weather.data("city"), function(error, json) {
                 beginning = slide * 10 + 1
                 end = beginning + 9
                 dataw = json.slice(beginning, end);
                 
-                // console.log(dataw);
+               
 
                 windgroup.selectAll("circle").remove();
                 windgroup.selectAll("circle").data(dataw)
@@ -203,12 +204,12 @@ ready = function() {
 
 
             window.travelAhead = function travelAhead() {
-                console.log("ahead");
+       
                 travelTime(true);
             }
 
              window.travelBack = function travelBack() {
-                console.log("back");
+               
                 travelTime(false);
             }
 
@@ -240,7 +241,7 @@ ready = function() {
             var xscale = d3.scale.linear()
                 .domain([0, 100])
                 .range([0, width]);
-            console.log(xscale);
+           
             var xAxis = d3.svg.axis()
                 .scale(axisscale)
                 .ticks(10)
@@ -524,6 +525,12 @@ ready = function() {
        
 
             });
+
+
+             d3.json("/weather/complete.json", function(error, json) {
+                // console.log(json.dt_text);
+                
+                });
 
       $(".icon1").click(function(){
               $("#windsvg").toggle();

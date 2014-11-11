@@ -10,6 +10,28 @@ class WeatherController < ApplicationController
 
 	end
 
+	def complete
+		
+		complete = []
+
+		city = params[:city] || "Barcelona"
+		Weather.by_city(city).each do |it|
+			complete << {complete: it }
+		end
+
+		# ["dt_text"]
+
+		respond_to do |format|
+			format.json do
+				render json: complete
+			end
+		end
+
+	end
+
+
+
+
 	def wind
 		
 		wind = []
