@@ -14,7 +14,7 @@ ready = function() {
                 array.push( datad[i].date);
                 arraydates=array.slice(1,10);                
 
-                arraytime = arraydates.map(function(v) { return v.slice(12, 21) }) 
+                 
                
 
             slide = 0
@@ -250,23 +250,22 @@ ready = function() {
             
 
             var axisscale = d3.scale.ordinal()
-                .domain(arraytime)
+                .domain(arraydates)
                 .rangeRoundBands([0, width]);
                 
-                console.log(arraytime);
+                console.log(arraydates);
                 
 
             var xscale = d3.scale.linear()
                 .domain([0, 100])
                 .range([0, width]);
            
-          
-            
-                    
+                       
 
             var xAxis = d3.svg.axis()
                 .scale(axisscale)
-                .tickValues(arraytime)
+                .tickValues(arraydates)
+                .tickFormat(function(d){ return d.slice(12,21) })
                 .tickSize(6, 0)
                 .orient("top");
 
