@@ -15,7 +15,7 @@ ready = function() {
                 arraydates=array.slice(1,10);                
 
                 arraytime = arraydates.map(function(v) { return v.slice(12, 21) }) 
-                console.log(arraytime);
+               
 
             slide = 0
             var weather = $("#weather");
@@ -251,8 +251,9 @@ ready = function() {
 
             var axisscale = d3.scale.ordinal()
                 .domain(arraytime)
-                .rangeRoundBands([0, 720]);
+                .rangeRoundBands([0, width]);
                 
+                console.log(arraytime);
                 
 
             var xscale = d3.scale.linear()
@@ -265,6 +266,7 @@ ready = function() {
 
             var xAxis = d3.svg.axis()
                 .scale(axisscale)
+                .tickValues(arraytime)
                 .tickSize(6, 0)
                 .orient("top");
 
