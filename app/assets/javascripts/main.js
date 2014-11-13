@@ -3,6 +3,19 @@ var ready;
 
 ready = function() {
 
+            var arraydates;
+
+            d3.json("/weather/date.json", function(error, datad) {
+            // slide = 0
+            // beginning = slide * 10 + 1
+            // end = beginning + 9
+            var array = [];
+            for(var i in datad)
+                array.push( datad[i].date);
+                arraydates=array.slice(1,10);                
+
+                arraytime = arraydates.map(function(v) { return v.slice(12, 21) }) 
+                console.log(arraytime);
 
             slide = 0
             var weather = $("#weather");
@@ -160,7 +173,7 @@ ready = function() {
                         .duration(1000)
                         .delay(100)
                         .attr("r", function(d, i) {
-                            return xscale(d.hum / 30)
+                            return xscale(d.hum / 10)
                         });
 
                 })
@@ -234,31 +247,24 @@ ready = function() {
                 .attr("width", width)
                 .attr("height", height);
 
-            var axisscale = d3.scale.linear()
-                .domain([0, 24])
-                .range([50, width-85]);
+            
+
+            var axisscale = d3.scale.ordinal()
+                .domain(arraytime)
+                .rangeRoundBands([0, 720]);
+                
+                
 
             var xscale = d3.scale.linear()
                 .domain([0, 100])
                 .range([0, width]);
            
-            var dates;
-
-            d3.json("/weather/date.json", function(error, datad) {
-            // debugger;
-            dates = datad;
-
-            var array = [];
-            for(var i in dates)
-                array.push( dates[i].date);
-
-            console.log(array);
-            });           
+          
+            
+                    
 
             var xAxis = d3.svg.axis()
                 .scale(axisscale)
-                .ticks(9)
-                // .tickValues(dates)
                 .tickSize(6, 0)
                 .orient("top");
 
@@ -268,6 +274,7 @@ ready = function() {
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + height + ")")
                 .call(xAxis)
+                .selectAll("text")  
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", width)
@@ -507,7 +514,7 @@ ready = function() {
                     .delay(100)
                     .attr("r", function(d, i) {
 
-                        return xscale(d.hum / 30)
+                        return xscale(d.hum / 10)
                     });
 
 
@@ -590,7 +597,7 @@ ready = function() {
 
             });
 
-
+         });
 
 
 } // Pageload
