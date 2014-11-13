@@ -110,7 +110,7 @@ svg.grid {
   background-image: linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px);
   background-size: 96px 96px, 96px 96px, 12px 12px, 12px 12px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
-  cursor:ns-resize;
+  cursor:asset-url("arrow-grey.png"),auto;
 }
 
 }
@@ -230,7 +230,6 @@ nav {
 
 
 	background-image: url(http://www.transparenttextures.com/patterns/tiny-grid.png);
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 	left: 0px;
 	top: 0px;
 	background-color: #1e90ff;

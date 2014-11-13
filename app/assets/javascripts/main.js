@@ -66,8 +66,6 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .attr("fill", "white")
-                    .attr("stroke", "grey")
-                    .attr("stroke-width", ".6px")
                     .style("opacity", 0)
                     .attr("y", 40)
                     .on('mouseover', function(d) {
@@ -124,8 +122,8 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .attr("fill", "white")
-                    .attr("stroke", "grey")
-                    .attr("stroke-width", ".6px")
+                    // .attr("stroke", "grey")
+                    // .attr("stroke-width", ".6px")
                     .style("opacity", 0)
                     .attr("y", 170)
                     .on('mouseover', function(d) {
@@ -146,7 +144,7 @@ ready = function() {
                     })
                     .on()
                     .attr("class", "labels");
-
+                    debugger;
                 })
 
                 d3.json("/weather/humidity.json?city=" + weather.data("city"), function(error, json) {
@@ -184,8 +182,6 @@ ready = function() {
                         .attr("width", 50)
                         .attr("height", 20)
                         .attr("fill", "white")
-                        .attr("stroke", "grey")
-                        .attr("stroke-width", ".6px")
                         .style("opacity", 0)
                         .attr("y", 290)
                         .on('mouseover', function(d) {
@@ -251,9 +247,9 @@ ready = function() {
 
             var axisscale = d3.scale.ordinal()
                 .domain(arraydates)
-                .rangeRoundBands([0, width]);
+                .rangeRoundBands([0, width-45]);
                 
-                console.log(arraydates);
+             
                 
 
             var xscale = d3.scale.linear()
@@ -347,22 +343,18 @@ ready = function() {
 
             function dropHandler(d) {
                 
-                // d3.select(this).selectAll("circle").sort(function (a, b) { 
-                // if (a.id != d.id) return -1;               
-                // else return 1;})
-                // debugger;
+                
             }
 
             function dragmove(d) {
-                // debugger;
-                // console.log(d3.select(this));
+                
                 d.y += d3.event.dy;
                 d3.select(this).attr("transform", "translate(" + d.x + "," + d.y + ")");
                 
-                if(d3.select(this)===windgroup){
+                // if(d3.select(this)===windgroup){
 
-                    if (d.y > 213) d.y = 213;
-                    if (d.y < -6) d.y = -6;}
+                //     if (d.y > 213) d.y = 213;
+                //     if (d.y < -6) d.y = -6;}
                 }
 
         
@@ -401,8 +393,6 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .attr("fill", "white")
-                    .attr("stroke", "grey")
-                    .attr("stroke-width", ".6px")
                     .style("opacity", 0)
                     .attr("y", 45)
                     .on('mouseover', function(d) {
@@ -462,8 +452,8 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .attr("fill", "white")
-                    .attr("stroke", "grey")
-                    .attr("stroke-width", ".6px")
+                    // .attr("stroke", "grey")
+                    // .attr("stroke-width", ".6px")
                     .style("opacity", 0)
                     .attr("y", 175)
                     .on('mouseover', function(d) {
@@ -514,10 +504,15 @@ ready = function() {
                     .duration(1000)
                     .delay(100)
                     .attr("r", function(d, i) {
-
                         return xscale(d.hum / 10)
                     });
 
+
+    d3.selection.prototype.moveToFront = function() {
+        return this.each(function(){
+        this.parentNode.appendChild(this);
+        });
+    };
 
                  humiditygroup.selectAll("text").data(datah)
                         .enter()
@@ -525,8 +520,8 @@ ready = function() {
                         .attr("width", 50)
                         .attr("height", 20)
                         .attr("fill", "white")
-                        .attr("stroke", "grey")
-                        .attr("stroke-width", ".6px")
+                        // .attr("stroke", "grey")
+                        // .attr("stroke-width", ".6px")
                         .style("opacity", 0)
                         .attr("y", 295)
                         .on('mouseover', function(d) {
@@ -550,23 +545,33 @@ ready = function() {
 
             });
 
+    
 
-            
+
+
+
+
+    
+
+
+
+       
 
       $(".icon1").click(function(){
               $("#windsvg").toggle();
-              if ( $("#time").html("today") ){
-
-              }
+              
+             
 
             });
 
       $(".icon2").click(function(){
               $("#temperaturesvg").toggle();
+             
             });
 
       $(".icon3").click(function(){
               $("#humiditysvg").toggle();
+
             });
 
        
@@ -601,17 +606,9 @@ ready = function() {
          });
 
 
-} // Pageload
+} 
 
-
-
-
-
-        // style.display property to "none"
-        // and
-        // show() and hide function
-
-          
+         
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
