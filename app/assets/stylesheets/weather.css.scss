@@ -35,6 +35,11 @@ div#time{
 g.x.axis{
 	fill: #666;
 }
+
+g.x.axis text{
+	font-size: 12px;
+}
+
 .axis path,
 .axis line {
   fill: none;
@@ -51,7 +56,6 @@ body{
 	font-family: 'Lora', serif;
 	padding: 20px;
 	color: white;
-	// background: LIGHTGREY;
 	background-image: asset-url("bedge_grunge.png");
 	line-height:20px;
 	font-weight:bold;
@@ -278,4 +282,8 @@ button.timetravel2{
   margin-left: 10px;
   border-radius: 5px;
   cursor: pointer; cursor: hand;
+}
+
+.ticks{
+	font-size: 0.8em;
 }

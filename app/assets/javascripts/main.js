@@ -6,14 +6,13 @@ ready = function() {
             var arraydates;
 
             d3.json("/weather/date.json", function(error, datad) {
-            // slide = 0
-            // beginning = slide * 10 + 1
-            // end = beginning + 9
+           
             var array = [];
+          
             for(var i in datad)
-                array.push( datad[i].date);
+                array.push( new Date(datad[i].date));
                 arraydates=array.slice(1,10);                
-
+           
                  
                
 
@@ -259,15 +258,11 @@ ready = function() {
                        
 
             var xAxis = d3.svg.axis()
+                // .attr("class", "ticks")
                 .scale(axisscale)
                 .tickValues(arraydates)
-                .tickFormat(function(d){ 
-                                if ( parseFloat(d.slice(12,16)) >= 0 ) {
-                                    return d.slice(12,16) + " am" 
-                                } else if ( parseFloat(d.slice(12,16)) >= 12 && parseFloat(d.slice(12,16)) <= 0){
-                                    return d.slice(12,16) + " pm"
-
-                                }
+                .tickFormat(function(d){                 
+                               return d.toLocaleTimeString("en-US");
                             })
                 .tickSize(6, 0)
                 .orient("top");
