@@ -261,7 +261,14 @@ ready = function() {
             var xAxis = d3.svg.axis()
                 .scale(axisscale)
                 .tickValues(arraydates)
-                .tickFormat(function(d){ return d.slice(12,21) })
+                .tickFormat(function(d){ 
+                                if ( parseFloat(d.slice(12,16)) >= 0 ) {
+                                    return d.slice(12,16) + " am" 
+                                } else if ( parseFloat(d.slice(12,16)) >= 12 && parseFloat(d.slice(12,16)) <= 0){
+                                    return d.slice(12,16) + " pm"
+
+                                }
+                            })
                 .tickSize(6, 0)
                 .orient("top");
 
@@ -508,20 +515,12 @@ ready = function() {
                     });
 
 
-    d3.selection.prototype.moveToFront = function() {
-        return this.each(function(){
-        this.parentNode.appendChild(this);
-        });
-    };
-
                  humiditygroup.selectAll("text").data(datah)
                         .enter()
                         .append("text")
                         .attr("width", 50)
                         .attr("height", 20)
                         .attr("fill", "white")
-                        // .attr("stroke", "grey")
-                        // .attr("stroke-width", ".6px")
                         .style("opacity", 0)
                         .attr("y", 295)
                         .on('mouseover', function(d) {
@@ -544,16 +543,6 @@ ready = function() {
        
 
             });
-
-    
-
-
-
-
-
-    
-
-
 
        
 
