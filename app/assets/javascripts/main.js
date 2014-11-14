@@ -49,7 +49,7 @@ ready = function() {
                     .style('fill', 'deeppink')
                     .attr("height", 10)
                     .attr("width", 20)
-                    .attr("transform", "translate(50, 0)")
+                    .attr("transform", "translate(75, 0)")
                     .transition()
                     .duration(1000)
                     .delay(100)
@@ -106,7 +106,7 @@ ready = function() {
                         .style("fill", "gold")
                         .attr("height", 10)
                         .attr("width", 20)
-                        .attr("transform", "translate(50, 0)")
+                        .attr("transform", "translate(75, 0)")
                         .transition()
                         .duration(1000)
                         .delay(100)
@@ -165,7 +165,7 @@ ready = function() {
                         .style("fill", "dodgerblue")
                         .attr("height", 10)
                         .attr("width", 20)
-                        .attr("transform", "translate(50, 0)")
+                        .attr("transform", "translate(75, 0)")
                         .transition()
                         .duration(1000)
                         .delay(100)
@@ -246,7 +246,7 @@ ready = function() {
 
             var axisscale = d3.scale.ordinal()
                 .domain(arraydates)
-                .rangeRoundBands([0, width-45]);
+                .rangeRoundBands([0, 960]);
                 
              
                 
@@ -381,7 +381,7 @@ ready = function() {
                     .style('fill', 'deeppink')
                     .attr("height", 10)
                     .attr("width", 20)
-                    .attr("transform", "translate(50, 0)")
+                    .attr("transform", "translate(75, 0)")
                     .transition()
                     .duration(1000)
                     .delay(100)
@@ -439,7 +439,7 @@ ready = function() {
                     .style("fill", "gold")
                     .attr("height", 10)
                     .attr("width", 20)
-                    .attr("transform", "translate(50, 0)")
+                    .attr("transform", "translate(75, 0)")
                     .transition()
                     .duration(1000)
                     .delay(100)
@@ -501,7 +501,7 @@ ready = function() {
                     .style("fill", "dodgerblue")
                     .attr("height", 10)
                     .attr("width", 20)
-                    .attr("transform", "translate(50, 0)")
+                    .attr("transform", "translate(75, 0)")
                     .transition()
                     .duration(1000)
                     .delay(100)
