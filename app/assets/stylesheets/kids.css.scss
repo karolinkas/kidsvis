@@ -116,5 +116,8 @@ input#kid_diameter{
 
 container#form{
 	display: flex; 
-	justify-content: center;
+	flex-direction: column;
+	width: 800px;
+	margin-left: 200px;
 }
+

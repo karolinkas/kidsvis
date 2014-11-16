@@ -60,3 +60,17 @@ div#about{
 	width: 800px;
 	color: grey;
 }
+
+div#blue{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 70px;
+	width: 20%;
+	background: $niceblue;
+}
+
+img.wetter{
+	margin-left:25px;
+	margin-top: 20px;
+}
