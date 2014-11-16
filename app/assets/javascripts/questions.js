@@ -8,15 +8,21 @@ ready = function(){
 	  
 	  data = datafull.slice(1,8);
 
-	  var svg = d3.select("body").select("#mainkids")
+	  var svg1 = d3.select("body").select("#mainkids")
+	                             .attr("height", height)
+			                				 .attr("width", width)
+		var svg2 = d3.select("body").select("#mainkids")
+	                             .attr("height", height)
+			                				 .attr("width", width)
+		var svg3 = d3.select("body").select("#mainkids")
 	                             .attr("height", height)
 			                				 .attr("width", width)
 
-				
 
-		svg.selectAll("g.node").data(data)
+
+		svg1.selectAll("g.node").data(data)
 													.enter()
-													.append("g") 
+													.append("g")
 													.attr("transform", function(d, i) {	
 													  var factor = d.hours/20,
 													  translate = "translate("+90*i+","+40+")",
@@ -27,7 +33,7 @@ ready = function(){
 													.attr("xlink:href", "#game");
 
 
-		svg.selectAll("text").data(data)
+		svg1.selectAll("text").data(data)
 													.enter()
 													.append("text") 
 													.attr("transform", function(d, i) {	
@@ -56,7 +62,7 @@ ready = function(){
 					                })
 													.attr("class", "labels");
 
-		svg.selectAll("g.node").data(data)
+		svg2.selectAll("g.node").data(data)
 													.enter()
 													.append("g") 
 													.attr("transform", function(d, i) {	
@@ -68,12 +74,12 @@ ready = function(){
 													.append("use") 
 													.attr("xlink:href", "#choc");
 
-		svg.selectAll("text").data(data)
+		svg2.selectAll("text").data(data)
 													.enter()
 													.append("text") 
 													.attr("transform", function(d, i) {	
-													var factor = d.diameter/20,
-													translate = "translate("+(90*i)+","+170+")",
+													var factor = d.pieces/20,
+													translate = "translate("+(90*i)+","+300+")",
 													scale = "scale(" + factor + ")";								 
 													return translate;
 													})
@@ -83,7 +89,7 @@ ready = function(){
 													.style("opacity", 0)
 
 													.text(function(d,i){
-														return d.diameter+"cm"
+														return d.pieces+"cm"
 													})
 													.on('mouseover', function(d) {
                         	d3.select(this).style({
@@ -97,7 +103,7 @@ ready = function(){
 					                })
 													.attr("class", "labels");
 
-		svg.selectAll("g.node").data(data)
+		svg3.selectAll("g.node").data(data)
 													.enter()
 													.append("g") 
 													.attr("transform", function(d, i) {	
@@ -109,12 +115,12 @@ ready = function(){
 													.append("use") 
 													.attr("xlink:href", "#bubble");
 
-    svg.selectAll("text").data(data)
+    svg3.selectAll("text").data(data)
 													.enter()
 													.append("text") 
 													.attr("transform", function(d, i) {	
-													var factor = d.pieces/20,
-													translate = "translate("+(90*i)+","+300+")",
+													var factor = d.diameter/20,
+													translate = "translate("+(90*i)+","+170+")",
 													scale = "scale(" + factor + ")";								 
 													return translate;
 													})

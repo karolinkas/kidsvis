@@ -121,8 +121,6 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .attr("fill", "white")
-                    // .attr("stroke", "grey")
-                    // .attr("stroke-width", ".6px")
                     .style("opacity", 0)
                     .attr("y", 170)
                     .on('mouseover', function(d) {
@@ -143,7 +141,7 @@ ready = function() {
                     })
                     .on()
                     .attr("class", "labels");
-                    debugger;
+                  
                 })
 
                 d3.json("/weather/humidity.json?city=" + weather.data("city"), function(error, json) {
@@ -299,6 +297,7 @@ ready = function() {
                 .call(onDragDrop(dragmove, dropHandler));
 
 
+
             var g2 = d3.select("body")
                 .select(".grid")
                 .data(d)
@@ -348,16 +347,31 @@ ready = function() {
                 
             }
 
+            d3.selection.prototype.moveToFront = function() { 
+                return this.each(function() { 
+                  this.parentNode.appendChild(this); 
+                }); 
+              }; 
+            
             function dragmove(d) {
                 
+                // debugger;
+
                 d.y += d3.event.dy;
                 d3.select(this).attr("transform", "translate(" + d.x + "," + d.y + ")");
+
+                d3.select(this).moveToFront();
+                // d3.select(".grid").selectAll("svg > g").sort(function (a, b) { 
+                //   if (a.id != d.id) return -1;               
+                //   else return 1;                            
+                // });
                 
                 // if(d3.select(this)===windgroup){
 
                 //     if (d.y > 213) d.y = 213;
                 //     if (d.y < -6) d.y = -6;}
-                }
+                
+            }
 
         
 
@@ -454,8 +468,6 @@ ready = function() {
                     .attr("width", 50)
                     .attr("height", 20)
                     .attr("fill", "white")
-                    // .attr("stroke", "grey")
-                    // .attr("stroke-width", ".6px")
                     .style("opacity", 0)
                     .attr("y", 175)
                     .on('mouseover', function(d) {
