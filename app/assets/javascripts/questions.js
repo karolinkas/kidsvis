@@ -144,6 +144,9 @@ ready = function(){
 					                })
 													.attr("class", "labels");   
 
+
+			
+
 												
 	})
 											
