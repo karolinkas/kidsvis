@@ -22,7 +22,7 @@ div#time{
 	width: 150px;
 	height: 30px;
 	position: relative;
-	left: 890px;
+	left: 900px;
 	color: grey;
 	padding-left:25px;
 	padding-right:20px;
@@ -288,3 +288,9 @@ button.timetravel2{
 	font-size: 0.8em;
 }
 
+
+svg#arrow{
+	position: relative;
+	left: 500px;
+	margin: auto;
+}
