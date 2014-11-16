@@ -352,7 +352,7 @@ ready = function() {
                   this.parentNode.appendChild(this); 
                 }); 
               }; 
-            
+
             function dragmove(d) {
                 
                 // debugger;
@@ -551,7 +551,17 @@ ready = function() {
 
             });
 
-       
+      $("img.arrow").css('opacity', 0); 
+
+      $(".grid").hover(function(){
+
+              $("img.arrow").fadeTo('slow',1);            
+            },
+            function(){
+               $("img.arrow").fadeOut(); 
+            }); 
+
+      
 
       $(".icon1").click(function(){
               $("#windsvg").toggle();
