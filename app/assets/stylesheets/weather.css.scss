@@ -114,7 +114,8 @@ svg.grid {
   background-image: linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px);
   background-size: 96px 96px, 96px 96px, 12px 12px, 12px 12px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
-  cursor:asset-url("arrow-grey.png"),auto;
+  // cursor:asset-url("arrow-grey.png"),auto;
+  cursor: pointer; cursor: hand;
 }
 
 }
@@ -183,6 +184,7 @@ input{
 
 text.labels{
 	color: grey;
+	// pointer-events: none;
 }
 
 
@@ -278,7 +280,6 @@ button.timetravel2{
   color: white;
   font-size: 1.0em;
   font-weight: bold;
-  // margin-top:100px;
   margin-left: 10px;
   border-radius: 5px;
   cursor: pointer; cursor: hand;
@@ -306,3 +307,4 @@ img.logo{
 	margin-top: -16px;
 	vertical-align: middle;
 }
+

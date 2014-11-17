@@ -8,18 +8,15 @@ ready = function() {
             d3.json("/weather/date.json", function(error, datad) {
            
             var array = [];
-          
+      
+
             for(var i in datad)
-                array.push( new Date(datad[i].date));
+                array.push( new Date(datad[i].date.replace(/-/g,"/")));
                 arraydates=array.slice(1,10);                
-           
-                 
-               
+                debugger;
 
             slide = 0
             var weather = $("#weather");
-
-
 
             function travelTime(ahead) {
                 if (ahead) {
@@ -27,7 +24,6 @@ ready = function() {
                 } else {
                     slide -= 1
                 }
-
 
 
              d3.json("/weather/wind.json?city=" + weather.data("city"), function(error, json) {
@@ -204,11 +200,6 @@ ready = function() {
 
 
 
-
-
-
-
-
             window.travelAhead = function travelAhead() {
        
                 travelTime(true);
@@ -218,9 +209,6 @@ ready = function() {
                
                 travelTime(false);
             }
-
-
-
 
 
             var margin = {
@@ -254,9 +242,9 @@ ready = function() {
                 .range([0, width]);
            
                        
+                            
 
             var xAxis = d3.svg.axis()
-                // .attr("class", "ticks")
                 .scale(axisscale)
                 .tickValues(arraydates)
                 .tickFormat(function(d){                 
@@ -355,21 +343,21 @@ ready = function() {
 
             function dragmove(d) {
                 
-                // debugger;
+       
 
                 d.y += d3.event.dy;
                 d3.select(this).attr("transform", "translate(" + d.x + "," + d.y + ")");
 
                 d3.select(this).moveToFront();
-                // d3.select(".grid").selectAll("svg > g").sort(function (a, b) { 
-                //   if (a.id != d.id) return -1;               
-                //   else return 1;                            
-                // });
-                
-                // if(d3.select(this)===windgroup){
+           
 
-                //     if (d.y > 213) d.y = 213;
-                //     if (d.y < -6) d.y = -6;}
+                if(d3.select(this)===windgroup){
+
+                   
+
+                    // if (d.y > 213) d.y = 213;
+                    // if (d.y < -6) d.y = -6;
+                }
                 
             }
 
