@@ -13,7 +13,7 @@ ready = function() {
             for(var i in datad)
                 array.push( new Date(datad[i].date.replace(/-/g,"/")));
                 arraydates=array.slice(1,10);                
-                debugger;
+         
 
             slide = 0
             var weather = $("#weather");
@@ -350,11 +350,9 @@ ready = function() {
 
                 d3.select(this).moveToFront();
            
-
-                if(d3.select(this)===windgroup){
-
-                   
-
+                debugger; 
+                if(d3.select(this)==="g"){
+                    console.log("yeih!")
                     // if (d.y > 213) d.y = 213;
                     // if (d.y < -6) d.y = -6;
                 }
