@@ -1,3 +1,5 @@
+
+
 var ready;
 
 var width = 1000;
@@ -19,7 +21,6 @@ ready = function(){
 			                				 .attr("width", width)
 
 
-
 		svg1.selectAll("g.node").data(data)
 													.enter()
 													.append("g")
@@ -31,35 +32,34 @@ ready = function(){
 													  return translate + " " + scale;
 													})
 													.append("use") 
-													.attr("xlink:href", "#game")
-													.append("text")
-  										 		.text(function(d) { 
-  										 	     return d.hours; });
+													.attr("xlink:href", "#game");
 
 
 		var gnodes1 = svg1.selectAll("g")
-
-		gnodes1.append("text")
-    .style({opacity:'0.0'})
-    .attr("dx", "0.5em")
-    .attr("dy", "0.8em")
-    .attr("font-size",100)
-    .attr("fill", "white")
-    .on('mouseenter', function(d) {
-        var nodeselect = d3.select(this).style({opacity: '0.0'})
-        nodeselect.select("text").style({opacity:'1.0'})
-    })
-    .on('mouseleave', function(d) {
-        d3.select(this).style({opacity: '1.0'})
-        
-    })
-    .text(function(d) { return d.hours; })
+  
+  	gnodes1
     .append('rect')
-	  .style('visibility', 'hidden')
+    .style({opacity:'0.0'})
 	  .attr('x', 0)
 	  .attr('y', 0)
-	  .attr('width', 100)
+	  .attr('fill',"white")
+	  .on('mouseenter', function(d) {
+        d3.select(this).style({opacity: '1.0'})
+    })
+    .on('mouseleave', function(d) {
+        d3.select(this).style({opacity: '0.0'})      
+    })
+	  .attr('width', 200)
 	  .attr('height', 100);
+
+		gnodes1.append("text")
+    .attr("x", "0")
+    .attr("y", "0")
+    .attr("font-size",100)
+    .attr("fill", "grey")
+    .text(function(d) { return d.hours; });
+
+   
 
 
 	// 	svg2.selectAll("g.node").data(data)
