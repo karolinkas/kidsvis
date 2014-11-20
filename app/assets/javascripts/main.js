@@ -350,12 +350,7 @@ ready = function() {
 
                 d3.select(this).moveToFront();
            
-                debugger; 
-                if(d3.select(this)==="g"){
-                    console.log("yeih!")
-                    // if (d.y > 213) d.y = 213;
-                    // if (d.y < -6) d.y = -6;
-                }
+                
                 
             }
 

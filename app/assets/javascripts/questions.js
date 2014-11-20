@@ -1,5 +1,3 @@
-
-
 var ready;
 
 var width = 1000;
@@ -160,8 +158,6 @@ ready = function(){
 }
 
 $(document).ready(ready);
-
-
 
 
 
