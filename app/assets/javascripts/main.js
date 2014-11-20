@@ -341,16 +341,22 @@ ready = function() {
                 }); 
               }; 
 
-            function dragmove(d) {
+            function dragmove() {
                 
-       
+                if (d3.event.y < 0) return;
+                
+                var d = this;
+                
+                if (!d.y) d.y = 0;
+
 
                 d.y += d3.event.dy;
-                d3.select(this).attr("transform", "translate(" + d.x + "," + d.y + ")");
-
+                d3.select(this).attr("transform", "translate(0," + d.y + ")");
+                //console.log(this);
                 d3.select(this).moveToFront();
            
-                
+                 
+
                 
             }
 
