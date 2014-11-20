@@ -116,8 +116,8 @@ svg.grid {
   background-image: linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(4, 156, 219, 0.125) 1px, rgba(0, 0, 0, 0) 1px);
   background-size: 96px 96px, 96px 96px, 12px 12px, 12px 12px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
-  // cursor:asset-url("arrow-grey.png"),auto;
-  cursor: pointer; cursor: hand;
+  cursor:asset-url("arrow-grey.png"),auto;
+  // cursor: pointer; cursor: hand;
 }
 
 }
