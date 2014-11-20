@@ -16,6 +16,8 @@
 //         font-family: "IstokWeb-Bold";
 //         src:url(asset-path(fonts/IstokWeb-Bold.ttf));
 //     }
+$niceblue: #1e90ff;
+$nicegrey: #a1a1a1;
 
 div#time{
 	background-color: white;
@@ -306,5 +308,15 @@ img.logo{
 	
 	margin-top: -16px;
 	vertical-align: middle;
+}
+
+#instruction{
+	font-size: 1em;
+	color: grey;
+}
+
+#instructionbox{
+	max-width: 600px;
+	margin-top: 30px;
 }
 

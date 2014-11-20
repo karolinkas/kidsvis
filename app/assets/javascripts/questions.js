@@ -1,31 +1,46 @@
 var ready;
 
-var width = 1000;
-var height = 600;
+
+var margin = {top: 80, right: 80, bottom: 80, left: 80};
+
+var width = 1000 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+
 ready = function(){
 
 	d3.json("/kids.json", function(error, datafull) {
 	  
 	  data = datafull.slice(1,8);
 
-	  d3.select("body").select("#mainkids").attr("height", height)
-			                				 					 .attr("width", width);
+	  d3.select("body").select("#mainkids")
+	    .attr("width", width + margin.left + margin.right)
+    	.attr("height", height + margin.top + margin.bottom)
+  		.append("g")
+    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	  var svg1 = d3.select("body").select("#mainkids")
 	  													 .append("svg")
 	  													 .attr("class","svg1")
-	                             .attr("height", height)
-			                				 .attr("width", width)
+	                             .attr("height", height + margin.top + margin.bottom)
+			                				 .attr("width", width + margin.left + margin.right)
+			                				 .append("g")
+    													 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
 		var svg2 = d3.select("body").select("#mainkids")
 															 .append("svg")
 	  													 .attr("class","svg2")
-	                             .attr("height", height)
-			                				 .attr("width", width)
+	                             .attr("height", height + margin.top + margin.bottom)
+			                				 .attr("width", width + margin.left + margin.right)
+			                				 .append("g")
+    													 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
 		var svg3 = d3.select("body").select("#mainkids")
 															 .append("svg")
 	  													 .attr("class","svg3")
-	                             .attr("height", height)
-			                				 .attr("width", width)
+	                             .attr("height", height + margin.top + margin.bottom)
+			                				 .attr("width", width + margin.left + margin.right)
+			                				 .append("g")
+    													 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
 		svg1.selectAll("g.node").data(data)
@@ -34,7 +49,7 @@ ready = function(){
 													.attr("class","node")
 													.attr("transform", function(d, i) {	
 													  var factor = d.hours/20,
-													  translate = "translate("+Math.random()*(width-50)+","+Math.random()*(height-50)+")",
+													  translate = "translate("+Math.random()*(width-100)+","+Math.random()*(height-100)+")",
 													  scale = "scale(" + factor + ")";								 
 													  return translate + " " + scale;
 													})
@@ -45,8 +60,8 @@ ready = function(){
 
 		gnodes1.append("text")
 		.style("opacity", 0)
-	  .attr("x", "0")
-	  .attr("y", "0")
+	  .attr("x", "30")
+	  .attr("y", "30")
 	  .attr("font-size",100)
 	  .attr("fill", "white")
 	  .on('mouseover', function(d) {
@@ -59,30 +74,7 @@ ready = function(){
               opacity: '0.0'
        })
      })
-	  .text(function(d) { return d.hours; });
-
-  
-		// var tooltip = d3.select("body")
-		// .append("div")
-		// .attr("class","tooltip")
-		// .style("position", "absolute")
-		// .style("z-index", "10")
-		// .style("visibility", "hidden")
-		// .text("a simple tooltip");
-
-		// gnodes1
-		// .on("mouseover", function(){	
-			 
-		// tooltip.selectAll("div").html(data.hours)
-		// 	return tooltip.style("visibility", "visible");})
-		// .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-		// .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-		
-		// console.log(tooltip);
-		
-
-   
-
+	  .text(function(d) { return d.hours + " hours"; });
 
 		svg2.selectAll("g.node").data(data)
 			.enter()
@@ -114,7 +106,7 @@ ready = function(){
               opacity: '0.0'
        })
      })
-    .text(function(d) { return d.pieces; });
+    .text(function(d) { return d.pieces+" pieces"; });
 
 
 		svg3.selectAll("g.node").data(data)
@@ -137,6 +129,8 @@ ready = function(){
 	  .style("opacity", 0)
     .attr("width", 50)
     .attr("height", 20)
+    .attr("x", "30")
+	  .attr("y", "30")
     .attr("font-size",100)
     .attr("fill", "white")
     .on('mouseover', function(d) {
@@ -149,7 +143,7 @@ ready = function(){
               opacity: '0.0'
        })
      })
-    .text(function(d) { return d.diameter; });
+    .text(function(d) { return d.diameter+"cm"; });
 	
 
 	})
